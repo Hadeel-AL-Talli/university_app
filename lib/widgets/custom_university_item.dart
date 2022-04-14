@@ -22,13 +22,13 @@ class CustomUnivItem extends StatelessWidget {
         Container(
           
           width: 310,
-          height: 110,
+          height: 130,
           child: Column(
             children: [
               SizedBox(height: 10,),
               Text(nameAR, style: AppUtils.h2),
               SizedBox(height: 10,),
-              Text(nameEN,style: TextStyle(color: Colors.blue , fontSize: 20,fontWeight: FontWeight.bold ))
+              Text(nameEN,style: TextStyle(color: Colors.blue , fontSize: 18,fontFamily: 'DroidBold' ))
             ],
           ),
           decoration: BoxDecoration(
@@ -44,10 +44,10 @@ class CustomUnivItem extends StatelessWidget {
         ),
         Positioned(
           right: -30,
-          top:15,
+          top:20,
           child: Container(
-            height: 80,
-            width: 70,
+            height: 90,
+            width: 75,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
