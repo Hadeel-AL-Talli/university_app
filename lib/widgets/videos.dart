@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:university_app/utils/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SubjectsWidget extends StatelessWidget {
+
+class VideosWidget extends StatelessWidget {
   final String title;
   final String imagepath;
-  const SubjectsWidget({ Key? key , required this.title , required this.imagepath }) : super(key: key);
+  const VideosWidget({ Key? key , required this.title , required this.imagepath }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-         Navigator.pushNamed(context, '/subject_screen');
+       
       },
       child: Stack(
         children: [
@@ -25,7 +26,7 @@ class SubjectsWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
               boxShadow: [
                BoxShadow(
-                  color: Colors.white,offset: Offset(1.0,1.0)
+                  color: Colors.white,offset: Offset(3.0,1.0)
                 ),
                  
               ]
@@ -42,7 +43,14 @@ class SubjectsWidget extends StatelessWidget {
                 ),
     
                 
-                Text(title ,style:TextStyle(color: Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' , fontWeight: FontWeight.bold))
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                   
+                    Text(title ,style:TextStyle(color: Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' ,)),
+                     Image.asset('images/film.png',),
+                  ],
+                )
               ],
             ),
           ),

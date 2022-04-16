@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:university_app/utils/constants.dart';
 import 'package:university_app/widgets/app_text_field.dart';
-import 'package:university_app/widgets/custom_university_item.dart';
-import 'package:university_app/widgets/department.dart';
-import 'package:university_app/widgets/univ_department.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({ Key? key }) : super(key: key);
@@ -49,12 +47,12 @@ class _SignInState extends State<SignIn> {
         body: SingleChildScrollView(
           child: Column(children: [
             
-            SizedBox(height: 100,),
+            SizedBox(height: 100.h,),
             Image.asset('images/logo.png'),
-                 SizedBox(height: 10,),
+                 SizedBox(height: 10.h,),
                  Text('دليل الطالب', style: AppUtils.h3White),
         
-                 SizedBox(height: 80,),
+                 SizedBox(height: 80.h,),
         
         
                
@@ -62,7 +60,7 @@ class _SignInState extends State<SignIn> {
                     margin: EdgeInsets.only(right: 50 , left: 50),
                    child: AppTextField(hint: 'رقم الجوال أو الايميل ', controller: _email)),
 
-                   SizedBox(height: 30,),
+                   SizedBox(height: 30.h,),
                   Container(
                      margin: EdgeInsets.only(right: 50 , left: 50),
                     child: AppTextField(hint: 'كلمة السر  ', controller: _password)), 
@@ -76,8 +74,8 @@ class _SignInState extends State<SignIn> {
         floatingActionButton: Padding(
           padding: const EdgeInsets.all(25.0),
           child: Container(
-            height:83,
-    width: 83,
+            height:83.h,
+    width: 83.h,
     decoration: BoxDecoration(
       gradient:LinearGradient(colors: [Color(0xff3AA8F2),Color(0xff2D475F)]),
      boxShadow: [
@@ -92,13 +90,24 @@ class _SignInState extends State<SignIn> {
         borderRadius: BorderRadius.circular(100) 
         //more than 50% of width makes circle
     ),
-            child: FloatingActionButton(
+            child: FloatingActionButton.extended(
             
               backgroundColor: Colors.blue,
-             
+               label: Column(
+                 children: [
+                   Text('تسجيل  ' ,
+                    style: TextStyle(fontSize: 12.sp ,fontWeight: FontWeight.bold , fontFamily: 'Droid'),),
+                    Text(' الدخول ' ,
+                    style: TextStyle(fontSize: 12.sp ,fontWeight: FontWeight.bold , fontFamily: 'Droid'),),
+                 ],
+               ),
               elevation: 1,
-              child: Text('تسجيل الدخول ', style: TextStyle(fontSize: 15  ,fontWeight: FontWeight.bold , fontFamily: 'Droid'),),
-              onPressed: (){}),
+             
+              onPressed: (){
+
+                //
+                Navigator.pushNamed(context, '/univ_screen');
+              }),
           ),
         ),
       ),

@@ -1,25 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:university_app/widgets/univ_department.dart';
+import 'package:university_app/widgets/videos.dart';
 
-class UnivDepartment extends StatefulWidget {
-  const UnivDepartment({ Key? key }) : super(key: key);
+class VideosScreen extends StatefulWidget {
+  const VideosScreen({ Key? key }) : super(key: key);
 
   @override
-  State<UnivDepartment> createState() => _UnivDepartmenetState();
+  State<VideosScreen> createState() => _VideosScreenState();
 }
 
-class _UnivDepartmenetState extends State<UnivDepartment> {
+class _VideosScreenState extends State<VideosScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-      extendBodyBehindAppBar: true,
-      appBar:  AppBar(
+      backgroundColor: Colors.grey.shade100,
+      appBar: AppBar(
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
         }, icon: Icon(Icons.arrow_back_ios)),
       centerTitle: true,
-        title: Text('أقسام الجامعات'),
+        title: Text('الفيديوهات  '),
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -30,12 +29,10 @@ class _UnivDepartmenetState extends State<UnivDepartment> {
               Color(0xff2D475F),Color(0xff3AA8F2)
             ])          
          ),        
-     ),      
- ),
+     ),
+      ),
 
- body:Padding(
-   padding: const EdgeInsets.only(top: 40),
-   child: GridView.builder(
+      body: GridView.builder(
                 itemCount: 10,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
@@ -43,10 +40,11 @@ class _UnivDepartmenetState extends State<UnivDepartment> {
 
                 ),
                 itemBuilder: (BuildContext context, int index){
-                  return UnivDepartmentWidget(title: 'القسم الأول');
+                 return VideosWidget(title: 'عنوان الفيديو', imagepath: 'images/vd.png');
                 },
               ),
- ),
+
+    
     );
   }
 }

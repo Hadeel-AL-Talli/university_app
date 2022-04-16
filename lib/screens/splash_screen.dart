@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:university_app/utils/constants.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({ Key? key }) : super(key: key);
@@ -11,7 +13,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    // TODO: implement initState
+    
     super.initState();
     Future.delayed(Duration(seconds: 3),(){
    Navigator.pushReplacementNamed(context, '/SignUp');
@@ -33,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
              Image.asset('images/logo.png'),
-             SizedBox(height: 10,),
+             SizedBox(height: 10.h,),
              Text('دليل الطالب', style: AppUtils.h1,)
             ],
           ),

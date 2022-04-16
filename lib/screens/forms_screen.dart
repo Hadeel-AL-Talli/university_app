@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:university_app/widgets/forms.dart';
 import 'package:university_app/widgets/subjects.dart';
 
 class FormsScreen extends StatefulWidget {
@@ -12,7 +13,7 @@ class _FormsScreenState extends State<FormsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade100,
+       backgroundColor: Colors.grey.shade100,
     appBar:  AppBar(
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
@@ -40,7 +41,11 @@ class _FormsScreenState extends State<FormsScreen> {
                 
               ),  
               itemBuilder: (BuildContext context, int index){  
-                return SubjectsWidget(title: 'اسم النموذج ' , imagepath: 'images/pdf.png',);
+                return InkWell(
+                  onTap: (){
+                    Navigator.pushNamed(context, '/links_screen');
+                  },
+                  child: FormsWidget(title: 'اسم النموذج ' , imagepath: 'images/pdf.png',));
               },  
             ),
     );

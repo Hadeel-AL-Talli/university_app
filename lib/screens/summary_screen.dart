@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:university_app/widgets/subjects.dart';
+import 'package:university_app/widgets/books.dart';
+import 'package:university_app/widgets/summary.dart';
 
 class SummaryScreen extends StatefulWidget {
   const SummaryScreen({ Key? key }) : super(key: key);
@@ -40,7 +42,7 @@ class _SummaryScreenState extends State<SummaryScreen> {
                 
               ),  
               itemBuilder: (BuildContext context, int index){  
-                return SubjectsWidget(title: 'اسم الملخص ' , imagepath: 'images/pw.png',);
+                return SummaryWidget(title: 'اسم الملخص ' , imagepath: 'images/pw.png',);
               },  
             ),
     );

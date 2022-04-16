@@ -33,16 +33,19 @@ class _MajorScreenState extends State<MajorScreen> {
  ),
 
 
- body: GridView.builder(  
-              itemCount: 10,  
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(  
-                  crossAxisCount: 2,  
-                
-              ),  
-              itemBuilder: (BuildContext context, int index){  
-                return MajorWidget(title: 'سنة أولى');
-              },  
-            ),
+ body: Padding(
+   padding: const EdgeInsets.only(top:60.0),
+   child: GridView.builder(  
+                itemCount: 10,  
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(  
+                    crossAxisCount: 2,  
+                  
+                ),  
+                itemBuilder: (BuildContext context, int index){  
+                  return MajorWidget(title: 'سنة أولى');
+                },  
+              ),
+ ),
     );
   }
 }

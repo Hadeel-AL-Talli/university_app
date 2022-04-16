@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:university_app/utils/constants.dart';
 import 'package:university_app/widgets/app_text_field.dart';
-import 'package:university_app/widgets/custom_university_item.dart';
-import 'package:university_app/widgets/department.dart';
-import 'package:university_app/widgets/univ_department.dart';
+
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class SignUp extends StatefulWidget {
   const SignUp({ Key? key }) : super(key: key);
@@ -49,14 +49,14 @@ class _SignUpState extends State<SignUp> {
         body: SingleChildScrollView(
           child: Column(children: [
             
-            SizedBox(height: 100,),
+            SizedBox(height: 100.h,),
             Image.asset('images/logo.png'),
-                 SizedBox(height: 10,),
+                 SizedBox(height: 10.h,),
                  Text('دليل الطالب', style: AppUtils.h3White),
-        
+                
                 // SizedBox(height: 60,),
-        
-        
+                
+                
                  Container(
                    margin: EdgeInsets.only(right: 50 , left: 50),
                    child: AppTextField(hint: 'اسم الطالب', controller: _name)), 
@@ -66,22 +66,22 @@ class _SignUpState extends State<SignUp> {
                   Container(
                      margin: EdgeInsets.only(right: 50 , left: 50),
                     child: AppTextField(hint: 'كلمة السر  ', controller: _password)), 
-        
-        
-                    SizedBox(height: 40,),
+                
+                
+                    SizedBox(height: 40.h,),
                     Text('إكمال عملية التسجيل من خلال الواتسآب' ,textAlign: TextAlign.center ,style:AppUtils.h3White),
-                    SizedBox(height: 15,),
+                    SizedBox(height: 15.h,),
                     GestureDetector(child: Image.asset('images/whatsapp.png')),
                 
-        
+                
           ],),
         ),
          floatingActionButtonLocation: FloatingActionButtonLocation.startDocked,
         floatingActionButton: Padding(
           padding: const EdgeInsets.all(25.0),
           child: Container(
-            height:83,
-    width: 83,
+            height:83.h,
+    width: 83.w,
     decoration: BoxDecoration(
       gradient:LinearGradient(colors: [Color(0xff3AA8F2),Color(0xff2D475F)]),
      boxShadow: [
@@ -102,7 +102,10 @@ class _SignUpState extends State<SignUp> {
              
               elevation: 1,
               child: Text('تسجيل', style: TextStyle(fontSize: 16 , fontWeight: FontWeight.bold , fontFamily: 'Droid'),),
-              onPressed: (){}),
+              onPressed: (){
+                // just for test 
+                Navigator.pushNamed(context, '/sign_in');
+              }),
           ),
         ),
       ),

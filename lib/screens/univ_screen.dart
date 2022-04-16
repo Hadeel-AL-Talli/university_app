@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:university_app/utils/constants.dart';
 import 'package:university_app/widgets/custom_university_item.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 class UniversitiesScreen extends StatefulWidget {
   const UniversitiesScreen({ Key? key }) : super(key: key);
 
@@ -13,7 +13,9 @@ class _UniversitiesScreenState extends State<UniversitiesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+    
       appBar: AppBar(
+        automaticallyImplyLeading: false,
       centerTitle: true,
         title: Text(' الجامعات'),
         flexibleSpace: Container(
@@ -54,7 +56,7 @@ class _UniversitiesScreenState extends State<UniversitiesScreen> {
        itemBuilder:((context, index) {
               return Column(
                 children: [
-                  SizedBox(height: 15,),
+                  SizedBox(height: 15.h,),
                   CustomUnivItem(nameAR: 'جامعة العلوم والتكنولوجيا', nameEN: '''University of science &
  Technology''',
                   

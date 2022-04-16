@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:university_app/utils/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SubjectsWidget extends StatelessWidget {
+class SummaryWidget extends StatelessWidget {
   final String title;
   final String imagepath;
-  const SubjectsWidget({ Key? key , required this.title , required this.imagepath }) : super(key: key);
+  const SummaryWidget({ Key? key , required this.title , required this.imagepath }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-         Navigator.pushNamed(context, '/subject_screen');
+         Navigator.pushNamed(context, '/forms_screen');
       },
       child: Stack(
         children: [
@@ -42,7 +42,7 @@ class SubjectsWidget extends StatelessWidget {
                 ),
     
                 
-                Text(title ,style:TextStyle(color: Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' , fontWeight: FontWeight.bold))
+                Text(title ,style:TextStyle(color: Color(0xff377198) , fontSize: 16 , fontFamily: 'Droid' , fontWeight: FontWeight.bold))
               ],
             ),
           ),

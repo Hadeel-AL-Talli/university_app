@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:university_app/utils/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SubjectsWidget extends StatelessWidget {
+
+class BooksWidget extends StatelessWidget {
   final String title;
   final String imagepath;
-  const SubjectsWidget({ Key? key , required this.title , required this.imagepath }) : super(key: key);
+  const BooksWidget({ Key? key , required this.title , required this.imagepath }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-         Navigator.pushNamed(context, '/subject_screen');
+         Navigator.pushNamed(context, '/summary_screen');
       },
       child: Stack(
         children: [

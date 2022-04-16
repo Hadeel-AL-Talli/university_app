@@ -12,6 +12,7 @@ class _SubjectScreenState extends State<SubjectScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
         leading: IconButton(onPressed: (){
           Navigator.pop(context);

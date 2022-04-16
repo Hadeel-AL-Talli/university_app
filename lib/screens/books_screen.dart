@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:university_app/widgets/subjects.dart';
+import 'package:university_app/widgets/books.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class BooksScreen extends StatefulWidget {
   const BooksScreen({ Key? key }) : super(key: key);
@@ -40,7 +42,7 @@ class _BooksScreenState extends State<BooksScreen> {
                 
               ),  
               itemBuilder: (BuildContext context, int index){  
-                return SubjectsWidget(title: 'اسم الكتاب ' , imagepath: 'images/pdf.png',);
+                return BooksWidget(title: 'اسم الكتاب ' , imagepath: 'images/pdf.png',);
               },  
             ),
     );
