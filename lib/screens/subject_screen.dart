@@ -18,7 +18,7 @@ class _SubjectScreenState extends State<SubjectScreen> {
           Navigator.pop(context);
         }, icon: const Icon(Icons.arrow_back_ios)),
       centerTitle: true,
-        title: const Text('اسم المادة '),
+        title: const Text('اسم المادة ',style: TextStyle(fontFamily: 'Droid'),),
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(

@@ -28,7 +28,7 @@ class VoiceWidget extends StatelessWidget {
               textDirection: TextDirection.rtl,
               style: TextStyle(
                 fontSize: 14.sp,
-                
+                fontFamily: 'Droid',
                 color: Colors.blueAccent,
               ),
             ),

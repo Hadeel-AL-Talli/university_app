@@ -19,7 +19,7 @@ class _VoiceState extends State<Voice> {
           Navigator.pop(context);
         }, icon: const Icon(Icons.arrow_back_ios)),
       centerTitle: true,
-        title: const Text('الأصوات  '),
+        title: const Text('الأصوات  ',style: TextStyle(fontFamily: 'Droid'),),
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(

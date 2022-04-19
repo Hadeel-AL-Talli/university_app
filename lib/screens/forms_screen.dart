@@ -18,7 +18,7 @@ class _FormsScreenState extends State<FormsScreen> {
           Navigator.pop(context);
         }, icon: const Icon(Icons.arrow_back_ios)),
       centerTitle: true,
-        title: const Text('النماذج  '),
+        title: const Text('النماذج  ',style: TextStyle(fontFamily: 'Droid'),),
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(

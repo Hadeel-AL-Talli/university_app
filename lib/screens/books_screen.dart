@@ -19,7 +19,7 @@ class _BooksScreenState extends State<BooksScreen> {
           Navigator.pop(context);
         }, icon: const Icon(Icons.arrow_back_ios)),
       centerTitle: true,
-        title: const Text('الكتب  '),
+        title: const Text('الكتب  ',style: TextStyle(fontFamily: 'Droid'),),
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(

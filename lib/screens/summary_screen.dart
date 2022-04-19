@@ -18,7 +18,7 @@ class _SummaryScreenState extends State<SummaryScreen> {
           Navigator.pop(context);
         }, icon: const Icon(Icons.arrow_back_ios)),
       centerTitle: true,
-        title: const Text('الملخصات  '),
+        title: const Text('الملخصات  ',style: TextStyle(fontFamily: 'Droid'),),
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(

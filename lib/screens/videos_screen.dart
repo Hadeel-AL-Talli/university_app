@@ -18,7 +18,7 @@ class _VideosScreenState extends State<VideosScreen> {
           Navigator.pop(context);
         }, icon: const Icon(Icons.arrow_back_ios)),
       centerTitle: true,
-        title: const Text('الفيديوهات  '),
+        title: const Text('الفيديوهات  ',style: TextStyle(fontFamily: 'Droid'),),
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(

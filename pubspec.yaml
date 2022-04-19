@@ -85,9 +85,9 @@ flutter:
         - asset: fonts/Droid-Regular.ttf
         
   #         style: italic
-    - family: DroidBold
-      fonts:
-        - asset: fonts/DroidBold.ttf
+    # - family: DroidBold
+    #   fonts:
+    #     - asset: fonts/DroidBold.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #

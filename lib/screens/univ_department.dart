@@ -19,7 +19,7 @@ class _UnivDepartmenetState extends State<UnivDepartment> {
           Navigator.pop(context);
         }, icon: const Icon(Icons.arrow_back_ios)),
       centerTitle: true,
-        title: const Text('أقسام الجامعات'),
+        title: const Text('أقسام الجامعات',style: TextStyle(fontFamily: 'Droid'),),
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(

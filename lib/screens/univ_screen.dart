@@ -16,7 +16,7 @@ class _UniversitiesScreenState extends State<UniversitiesScreen> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
       centerTitle: true,
-        title: const Text(' الجامعات'),
+        title: const Text(' الجامعات'  , style: TextStyle(fontFamily: 'Droid'),),
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
