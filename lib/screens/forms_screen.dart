@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:university_app/widgets/forms.dart';
-import 'package:university_app/widgets/subjects.dart';
 
 class FormsScreen extends StatefulWidget {
   const FormsScreen({ Key? key }) : super(key: key);
@@ -17,11 +16,11 @@ class _FormsScreenState extends State<FormsScreen> {
     appBar:  AppBar(
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
-        }, icon: Icon(Icons.arrow_back_ios)),
+        }, icon: const Icon(Icons.arrow_back_ios)),
       centerTitle: true,
-        title: Text('النماذج  '),
+        title: const Text('النماذج  '),
         flexibleSpace: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -34,9 +33,9 @@ class _FormsScreenState extends State<FormsScreen> {
       ),
 
       body:  GridView.builder(  
-         
+          padding: const EdgeInsets.only(left: 15),
               itemCount: 10,  
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(  
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(  
                   crossAxisCount: 2,  
                 
               ),  
@@ -45,7 +44,7 @@ class _FormsScreenState extends State<FormsScreen> {
                   onTap: (){
                     Navigator.pushNamed(context, '/links_screen');
                   },
-                  child: FormsWidget(title: 'اسم النموذج ' , imagepath: 'images/pdf.png',));
+                  child: const FormsWidget(title: 'اسم النموذج ' , imagepath: 'images/pdf.png',));
               },  
             ),
     );

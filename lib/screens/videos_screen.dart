@@ -16,11 +16,11 @@ class _VideosScreenState extends State<VideosScreen> {
       appBar: AppBar(
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
-        }, icon: Icon(Icons.arrow_back_ios)),
+        }, icon: const Icon(Icons.arrow_back_ios)),
       centerTitle: true,
-        title: Text('الفيديوهات  '),
+        title: const Text('الفيديوهات  '),
         flexibleSpace: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -33,14 +33,15 @@ class _VideosScreenState extends State<VideosScreen> {
       ),
 
       body: GridView.builder(
+        padding: const EdgeInsets.only(left: 15),
                 itemCount: 10,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     
 
                 ),
                 itemBuilder: (BuildContext context, int index){
-                 return VideosWidget(title: 'عنوان الفيديو', imagepath: 'images/vd.png');
+                 return const VideosWidget(title: 'عنوان الفيديو', imagepath: 'images/vd.png');
                 },
               ),
 

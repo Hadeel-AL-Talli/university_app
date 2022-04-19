@@ -17,11 +17,11 @@ class _SubjectsScreensState extends State<SubjectsScreens> {
       appBar: AppBar(
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
-        }, icon: Icon(Icons.arrow_back_ios)),
+        }, icon: const Icon(Icons.arrow_back_ios)),
       centerTitle: true,
-        title: Text('المواد  '),
+        title: const Text('المواد  '),
         flexibleSpace: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -34,14 +34,14 @@ class _SubjectsScreensState extends State<SubjectsScreens> {
       ),
 
       body: GridView.builder(  
-         
+         padding: const EdgeInsets.only(left:15),
               itemCount: 10,  
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(  
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(  
                   crossAxisCount: 2,  
                 
               ),  
               itemBuilder: (BuildContext context, int index){  
-                return SubjectsWidget(title: 'الكتب ' , imagepath: 'images/folder.png',);
+                return const SubjectsWidget(title: 'اسم المادة  ' , imagepath: 'images/folder.png',);
               },  
             ),
     );

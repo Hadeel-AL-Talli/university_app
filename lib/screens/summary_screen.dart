@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:university_app/widgets/subjects.dart';
-import 'package:university_app/widgets/books.dart';
 import 'package:university_app/widgets/summary.dart';
 
 class SummaryScreen extends StatefulWidget {
@@ -18,11 +16,11 @@ class _SummaryScreenState extends State<SummaryScreen> {
     appBar:  AppBar(
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
-        }, icon: Icon(Icons.arrow_back_ios)),
+        }, icon: const Icon(Icons.arrow_back_ios)),
       centerTitle: true,
-        title: Text('الملخصات  '),
+        title: const Text('الملخصات  '),
         flexibleSpace: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -35,14 +33,14 @@ class _SummaryScreenState extends State<SummaryScreen> {
       ),
 
       body:  GridView.builder(  
-         
+           padding: const EdgeInsets.only(left: 15),
               itemCount: 10,  
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(  
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(  
                   crossAxisCount: 2,  
                 
               ),  
               itemBuilder: (BuildContext context, int index){  
-                return SummaryWidget(title: 'اسم الملخص ' , imagepath: 'images/pw.png',);
+                return const SummaryWidget(title: 'اسم الملخص ' , imagepath: 'images/pw.png',);
               },  
             ),
     );

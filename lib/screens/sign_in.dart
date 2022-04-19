@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:university_app/utils/constants.dart';
 import 'package:university_app/widgets/app_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -48,7 +49,7 @@ class _SignInState extends State<SignIn> {
           child: Column(children: [
             
             SizedBox(height: 100.h,),
-            Image.asset('images/logo.png'),
+            SvgPicture.asset('images/logo.svg'),
                  SizedBox(height: 10.h,),
                  Text('دليل الطالب', style: AppUtils.h3White),
         
@@ -57,12 +58,12 @@ class _SignInState extends State<SignIn> {
         
                
                  Container(
-                    margin: EdgeInsets.only(right: 50 , left: 50),
+                    margin: const EdgeInsets.only(right: 50 , left: 50),
                    child: AppTextField(hint: 'رقم الجوال أو الايميل ', controller: _email)),
 
                    SizedBox(height: 30.h,),
                   Container(
-                     margin: EdgeInsets.only(right: 50 , left: 50),
+                     margin: const EdgeInsets.only(right: 50 , left: 50),
                     child: AppTextField(hint: 'كلمة السر  ', controller: _password)), 
         
         
@@ -77,37 +78,38 @@ class _SignInState extends State<SignIn> {
             height:83.h,
     width: 83.h,
     decoration: BoxDecoration(
-      gradient:LinearGradient(colors: [Color(0xff3AA8F2),Color(0xff2D475F)]),
-     boxShadow: [
-       BoxShadow(
-         color: Color(AppUtils.blueColor),
-         offset: Offset(1.0, 2.0),
-         blurRadius: 1.0,
-        
-       )
-     ],
+      gradient:const LinearGradient(colors: [Color(0xff3AA8F2),Color(0xff2D475F)]),
+    
        
         borderRadius: BorderRadius.circular(100) 
         //more than 50% of width makes circle
     ),
-            child: FloatingActionButton.extended(
+            child: InkWell(
+              onTap: (){
+                 Navigator.pushNamed(context, '/univ_screen');
+              },
+              child: Container(
+              
+               
+                 child: Column(
+                 //  crossAxisAlignment: CrossAxisAlignment.center,
+                   children: [
+                     const SizedBox(height: 15,),
+                     Text('تسجيل  ' ,
+                      style: TextStyle(fontSize: 12.sp ,fontWeight: FontWeight.bold , fontFamily: 'Droid' , color: Colors.white),),
+                      Text(' الدخول ' ,textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 12.sp ,fontWeight: FontWeight.bold , fontFamily: 'Droid',color: Colors.white),),
+                   ],
+                 ),
+               
+               
+                // onPressed: (){
             
-              backgroundColor: Colors.blue,
-               label: Column(
-                 children: [
-                   Text('تسجيل  ' ,
-                    style: TextStyle(fontSize: 12.sp ,fontWeight: FontWeight.bold , fontFamily: 'Droid'),),
-                    Text(' الدخول ' ,
-                    style: TextStyle(fontSize: 12.sp ,fontWeight: FontWeight.bold , fontFamily: 'Droid'),),
-                 ],
-               ),
-              elevation: 1,
-             
-              onPressed: (){
-
-                //
-                Navigator.pushNamed(context, '/univ_screen');
-              }),
+                //   //
+                //   Navigator.pushNamed(context, '/univ_screen');
+                // }
+                ),
+            ),
           ),
         ),
       ),

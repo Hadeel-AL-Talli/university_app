@@ -21,23 +21,26 @@ class CustomUnivItem extends StatelessWidget {
          Navigator.pushNamed(context, '/univ_department');
       },
       child: Stack(
-        overflow: Overflow.visible,
-        children: [
+        clipBehavior: Clip.none, children: [
          
           Container(
             
             width: 310,
             height: 130,
-            child: Column(
-              children: [
-                SizedBox(height: 10,),
-                Text(nameAR, style: AppUtils.h2),
-                SizedBox(height: 10,),
-                Text(nameEN,style: TextStyle(color: Colors.blue , fontSize: 18,fontFamily: 'Droid', fontWeight: FontWeight.bold ))
-              ],
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Column(
+                
+                children: [
+                  const SizedBox(height: 10,),
+                  Text(nameAR, style: AppUtils.h2),
+                  const SizedBox(height: 10,),
+                  Text(nameEN,style: const TextStyle(color: Colors.blue , fontSize: 15,fontFamily: 'Droid', fontWeight: FontWeight.bold ))
+                ],
+              ),
             ),
             decoration: BoxDecoration(
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   color: Colors.grey,offset: Offset(2,0.6)
                 )
@@ -57,7 +60,7 @@ class CustomUnivItem extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
     
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                     color: Colors.grey,
                    offset: Offset(0.2,1.3)
@@ -68,7 +71,7 @@ class CustomUnivItem extends StatelessWidget {
               child: Image.asset(imagePath, width: 70, height: 70,),
             ),
           ),
-           Positioned(
+           const Positioned(
              top:20,
             left: -20,
              bottom: 20,

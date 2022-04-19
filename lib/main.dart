@@ -11,16 +11,18 @@ import 'package:university_app/screens/splash_screen.dart';
 import 'package:university_app/screens/subject_screen.dart';
 import 'package:university_app/screens/subjects_screen.dart';
 import 'package:university_app/screens/summary_screen.dart';
+import 'package:university_app/screens/term.dart';
 import 'package:university_app/screens/univ_department.dart';
 import 'package:university_app/screens/univ_screen.dart';
 import 'package:university_app/screens/videos_screen.dart';
+import 'package:university_app/screens/voice_screen.dart';
 
 import 'screens/sign_up.dart';
 
 
 void main() {
   runApp(
-    MyApp()
+    const MyApp()
     // DevicePreview(
     //   enabled: true,
     //   tools: [
@@ -38,25 +40,27 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(375 ,812),
+      designSize: const Size(375 ,812),
       builder: ((context) => MaterialApp(
         debugShowCheckedModeBanner: false,
         initialRoute: '/splash_screen',
         routes: {
-          '/splash_screen':(context)=>SplashScreen(),
-          '/SignUp':(context)=> SignUp(),
-             '/sign_in':((context) => SignIn()),
-          '/univ_screen'  :(context)=> UniversitiesScreen(),
-          '/univ_department':(context)=> UnivDepartment(), 
-          '/department_screen' : (context)=> DepartmentScreen(),
-          '/major_screen' :((context) => MajorScreen()),
-          '/subject_screen' : ((context) => SubjectScreen()),
-          '/subjects_screen':(context)=>SubjectsScreens(),
-          '/books_screen':(context)=>BooksScreen(),
-          '/summary_screen':(context)=> SummaryScreen(),
-          '/forms_screen':(context)=> FormsScreen()     ,
-          '/links_screen':(context)=> Links()  ,
-          '/VideosScreen' :(context)=> VideosScreen() 
+          '/splash_screen':(context)=>const SplashScreen(),
+          '/SignUp':(context)=> const SignUp(),
+             '/sign_in':((context) => const SignIn()),
+          '/univ_screen'  :(context)=> const UniversitiesScreen(),
+          '/univ_department':(context)=> const UnivDepartment(), 
+          '/department_screen' : (context)=> const DepartmentScreen(),
+          '/major_screen' :((context) => const MajorScreen()),
+          '/term_screen':(context)=>const TermScreen(),
+          '/subject_screen' : ((context) => const SubjectScreen()),
+          '/subjects_screen':(context)=>const SubjectsScreens(),
+          '/books_screen':(context)=>const BooksScreen(),
+          '/summary_screen':(context)=> const SummaryScreen(),
+          '/forms_screen':(context)=> const FormsScreen()     ,
+          '/links_screen':(context)=> const Links()  ,
+          '/VideosScreen' :(context)=> const VideosScreen() ,
+          '/voiceScreen':(context)=> const Voice()
     
     
         },

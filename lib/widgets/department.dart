@@ -17,7 +17,8 @@ class Department extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           Container(
-            width: 350.w,
+           
+            width: 330.w,
             height: 67.h,
             child: Center(
               child: Text(
@@ -33,8 +34,8 @@ class Department extends StatelessWidget {
                 BoxShadow(
                   color: Colors.grey,
                   offset:  Offset(
-                    0.5,
-                    2.0,
+                    0.1,
+                    1.0,
                   ),
                 ),
               ],
@@ -47,15 +48,26 @@ class Department extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: -15,
-            top: 10,
-            child: CircleAvatar(
-              maxRadius: 25,
-              backgroundColor: Colors.white,
-              child: Icon(
-                Icons.arrow_back_ios,
-                size: 25,
-                color: Color(AppUtils.blueColor),
+            left: -10,
+            top: 6,
+            child: Container(
+
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(color: Colors.grey, spreadRadius: 0.3)
+                ]
+              ),
+              
+              child: CircleAvatar(
+                maxRadius: 30,
+                backgroundColor: Colors.white,
+                child: Icon(
+                  Icons.arrow_back_ios,
+                  size: 25,
+                  color: Color(AppUtils.blueColor),
+                ),
               ),
             ),
           ),

@@ -18,11 +18,11 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
       appBar:  AppBar(
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
-        }, icon: Icon(Icons.arrow_back_ios)),
+        }, icon: const Icon(Icons.arrow_back_ios)),
       centerTitle: true,
-        title: Text('القسم '),
+        title: const Text('القسم '),
         flexibleSpace: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -41,7 +41,7 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
      children: [
 
        SizedBox(height: 20.h,),
-Department(title: 'التخصص الأول  ')
+const Department(title: 'التخصص الأول  ')
      ],
    );
  },),

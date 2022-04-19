@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:university_app/utils/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
@@ -12,7 +11,9 @@ class BooksWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-         Navigator.pushNamed(context, '/summary_screen');
+
+        //open the book 
+        // Navigator.pushNamed(context, '/summary_screen');
       },
       child: Stack(
         children: [
@@ -24,9 +25,9 @@ class BooksWidget extends StatelessWidget {
                 color: Colors.white,
               ),
               borderRadius: BorderRadius.circular(15),
-              boxShadow: [
+              boxShadow: const [
                BoxShadow(
-                  color: Colors.white,offset: Offset(1.0,1.0)
+                  color: Colors.white,offset: Offset(2.0,2.0)
                 ),
                  
               ]
@@ -43,7 +44,7 @@ class BooksWidget extends StatelessWidget {
                 ),
     
                 
-                Text(title ,style:TextStyle(color: Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' , fontWeight: FontWeight.bold))
+                Text(title ,style:TextStyle(color: const Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' , fontWeight: FontWeight.bold))
               ],
             ),
           ),

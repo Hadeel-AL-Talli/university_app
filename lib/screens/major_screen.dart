@@ -15,11 +15,11 @@ class _MajorScreenState extends State<MajorScreen> {
       appBar:  AppBar(
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
-        }, icon: Icon(Icons.arrow_back_ios)),
+        }, icon: const Icon(Icons.arrow_back_ios)),
       centerTitle: true,
-        title: Text('التخصص '),
+        title: const Text('التخصص '),
         flexibleSpace: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -34,15 +34,16 @@ class _MajorScreenState extends State<MajorScreen> {
 
 
  body: Padding(
-   padding: const EdgeInsets.only(top:60.0),
-   child: GridView.builder(  
+   padding: const EdgeInsets.only(top:60.0 ),
+   child: GridView.builder( 
+     padding: const EdgeInsets.only(left:10), 
                 itemCount: 10,  
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(  
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(  
                     crossAxisCount: 2,  
                   
                 ),  
                 itemBuilder: (BuildContext context, int index){  
-                  return MajorWidget(title: 'سنة أولى');
+                  return const MajorWidget(title: 'سنة أولى');
                 },  
               ),
  ),

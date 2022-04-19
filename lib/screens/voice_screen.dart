@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:university_app/widgets/links.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:university_app/widgets/voice.dart';
 
 
-class Links extends StatefulWidget {
-  const Links({ Key? key }) : super(key: key);
+class Voice extends StatefulWidget {
+  const Voice({ Key? key }) : super(key: key);
 
   @override
-  State<Links> createState() => _LinksState();
+  State<Voice> createState() => _VoiceState();
 }
 
-class _LinksState extends State<Links> {
+class _VoiceState extends State<Voice> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +19,7 @@ class _LinksState extends State<Links> {
           Navigator.pop(context);
         }, icon: const Icon(Icons.arrow_back_ios)),
       centerTitle: true,
-        title: const Text('الروابط  '),
+        title: const Text('الأصوات  '),
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -43,7 +43,7 @@ class _LinksState extends State<Links> {
           return Column(
             children: [
               SizedBox(height: 10.h,),
-              const LinksWidget(link: 'رابط الفيديو'),
+              const VoiceWidget(link: ' اسم الصوت'),
             ],
           );
         },),

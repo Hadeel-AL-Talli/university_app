@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:university_app/utils/constants.dart';
 import 'package:university_app/widgets/custom_university_item.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 class UniversitiesScreen extends StatefulWidget {
@@ -17,9 +16,9 @@ class _UniversitiesScreenState extends State<UniversitiesScreen> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
       centerTitle: true,
-        title: Text(' الجامعات'),
+        title: const Text(' الجامعات'),
         flexibleSpace: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -37,7 +36,7 @@ class _UniversitiesScreenState extends State<UniversitiesScreen> {
        right: -20,
         top:20,
        child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -57,7 +56,7 @@ class _UniversitiesScreenState extends State<UniversitiesScreen> {
               return Column(
                 children: [
                   SizedBox(height: 15.h,),
-                  CustomUnivItem(nameAR: 'جامعة العلوم والتكنولوجيا', nameEN: '''University of science &
+                  const CustomUnivItem(nameAR: 'جامعة العلوم والتكنولوجيا', nameEN: '''University of science &
  Technology''',
                   
                   

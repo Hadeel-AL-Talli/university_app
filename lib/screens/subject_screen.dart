@@ -16,11 +16,11 @@ class _SubjectScreenState extends State<SubjectScreen> {
       appBar: AppBar(
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
-        }, icon: Icon(Icons.arrow_back_ios)),
+        }, icon: const Icon(Icons.arrow_back_ios)),
       centerTitle: true,
-        title: Text('اسم المادة '),
+        title: const Text('اسم المادة '),
         flexibleSpace: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -31,16 +31,48 @@ class _SubjectScreenState extends State<SubjectScreen> {
          ),        
      ),
       ),
-      body: GridView.builder(  
-         
-              itemCount: 10,  
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(  
+      body: GridView(  
+         padding: const EdgeInsets.only(left: 15),
+                
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(  
                   crossAxisCount: 2,  
+                  
                 
               ),  
-              itemBuilder: (BuildContext context, int index){  
-                return SubjectWidget(title: 'الكتب ' , imagepath: 'images/link.png',);
-              },  
+              children: [
+                InkWell(
+                  onTap: (){
+                    Navigator.pushNamed(context, '/VideosScreen');
+                  },
+                  child: const SubjectWidget(imagepath:'images/video.png', title: 'الفيديوهات', )),
+                InkWell(
+                  onTap: (){
+                     Navigator.pushNamed(context, '/books_screen');
+                  },
+                  child: const SubjectWidget(imagepath:'images/book.png', title: 'الكتب', )),
+                InkWell(
+                  onTap: (){
+                     Navigator.pushNamed(context, '/forms_screen');
+                  },
+                  child: const SubjectWidget(imagepath:'images/form.png', title: 'نماذج', )),
+                InkWell(
+                  onTap: (){
+                    Navigator.pushNamed(context, '/summary_screen');
+                  },
+                  child: const SubjectWidget(imagepath:'images/summary.png', title: 'الملخصات', )),
+                InkWell(
+                  onTap: (){
+                    Navigator.pushNamed(context, '/links_screen');
+                  },
+                  child: const SubjectWidget(imagepath:'images/link.png', title: 'روابط', )),
+                InkWell(
+                  onTap: (){
+                    Navigator.pushNamed(context, '/voiceScreen');
+                  },
+                  child: const SubjectWidget(imagepath:'images/voice.png', title: 'الصوت', )),
+                
+              ],
+               
             ),
     );
   }

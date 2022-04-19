@@ -17,11 +17,11 @@ class _UnivDepartmenetState extends State<UnivDepartment> {
       appBar:  AppBar(
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
-        }, icon: Icon(Icons.arrow_back_ios)),
+        }, icon: const Icon(Icons.arrow_back_ios)),
       centerTitle: true,
-        title: Text('أقسام الجامعات'),
+        title: const Text('أقسام الجامعات'),
         flexibleSpace: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -34,16 +34,16 @@ class _UnivDepartmenetState extends State<UnivDepartment> {
  ),
 
  body:Padding(
-   padding: const EdgeInsets.only(top: 40),
+   padding: const EdgeInsets.only(top: 40 , left:15 ),
    child: GridView.builder(
                 itemCount: 10,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     
 
                 ),
                 itemBuilder: (BuildContext context, int index){
-                  return UnivDepartmentWidget(title: 'القسم الأول');
+                  return const UnivDepartmentWidget(title: 'القسم الأول');
                 },
               ),
  ),

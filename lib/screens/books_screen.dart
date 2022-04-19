@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:university_app/widgets/books.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 class BooksScreen extends StatefulWidget {
@@ -18,11 +17,11 @@ class _BooksScreenState extends State<BooksScreen> {
     appBar:  AppBar(
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
-        }, icon: Icon(Icons.arrow_back_ios)),
+        }, icon: const Icon(Icons.arrow_back_ios)),
       centerTitle: true,
-        title: Text('الكتب  '),
+        title: const Text('الكتب  '),
         flexibleSpace: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -35,14 +34,14 @@ class _BooksScreenState extends State<BooksScreen> {
       ),
 
       body:  GridView.builder(  
-         
+         padding: const EdgeInsets.only(left: 15),
               itemCount: 10,  
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(  
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(  
                   crossAxisCount: 2,  
                 
               ),  
               itemBuilder: (BuildContext context, int index){  
-                return BooksWidget(title: 'اسم الكتاب ' , imagepath: 'images/pdf.png',);
+                return const BooksWidget(title: 'اسم الكتاب ' , imagepath: 'images/pdf.png',);
               },  
             ),
     );

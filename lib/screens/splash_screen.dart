@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:university_app/utils/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -15,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     
     super.initState();
-    Future.delayed(Duration(seconds: 3),(){
+    Future.delayed(const Duration(seconds: 3),(){
    Navigator.pushReplacementNamed(context, '/SignUp');
     });
   }
@@ -34,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-             Image.asset('images/logo.png'),
+             SvgPicture.asset('images/logo.svg'),
              SizedBox(height: 10.h,),
              Text('دليل الطالب', style: AppUtils.h1,)
             ],

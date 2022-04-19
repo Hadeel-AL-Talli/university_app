@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:university_app/utils/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SummaryWidget extends StatelessWidget {
@@ -11,7 +10,7 @@ class SummaryWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-         Navigator.pushNamed(context, '/forms_screen');
+        // Navigator.pushNamed(context, '/forms_screen');
       },
       child: Stack(
         children: [
@@ -23,7 +22,7 @@ class SummaryWidget extends StatelessWidget {
                 color: Colors.white,
               ),
               borderRadius: BorderRadius.circular(15),
-              boxShadow: [
+              boxShadow: const [
                BoxShadow(
                   color: Colors.white,offset: Offset(1.0,1.0)
                 ),
@@ -42,7 +41,7 @@ class SummaryWidget extends StatelessWidget {
                 ),
     
                 
-                Text(title ,style:TextStyle(color: Color(0xff377198) , fontSize: 16 , fontFamily: 'Droid' , fontWeight: FontWeight.bold))
+                Text(title ,style:const TextStyle(color: Color(0xff377198) , fontSize: 16 , fontFamily: 'Droid' , fontWeight: FontWeight.bold))
               ],
             ),
           ),

@@ -10,7 +10,8 @@ class MajorWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        Navigator.pushNamed(context, '/subjects_screen');
+       
+       Navigator.pushNamed(context, '/term_screen');
       },
       child: Stack(
         children: [
@@ -21,14 +22,14 @@ class MajorWidget extends StatelessWidget {
                 width: 1,
                 color: Color(AppUtils.blueColor),
               ),
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                     
                     topRight: Radius.circular(15.0),
                     topLeft: Radius.circular(15.0),
                     bottomLeft: Radius.circular(30.0),
                     bottomRight: Radius.circular(30.0)), ),
             width: 170.w,
-            height: 155.h,
+            height: 160.h,
             child: Center(
               child: Text(
                 title,
@@ -45,7 +46,7 @@ class MajorWidget extends StatelessWidget {
             child: CircleAvatar(
               maxRadius: 20,
               backgroundColor: Color(AppUtils.blueColor),
-              child: Icon(
+              child: const Icon(
                 Icons.arrow_back_ios,
                 size: 20,
                 color: Colors.white,

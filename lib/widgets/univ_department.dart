@@ -17,19 +17,20 @@ class UnivDepartmentWidget extends StatelessWidget {
         Navigator.pushNamed(context, '/department_screen');
       },
       child: Stack(
+        
         clipBehavior: Clip.none,
         children: [
          
          
           Container(
-     
+           
             decoration: BoxDecoration(
               color: Color(AppUtils.blueColor),
               border: Border.all(
                 width: 1,
                 color: Color(AppUtils.blueColor),
               ),
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                     
                     topRight: Radius.circular(15.0),
                     topLeft: Radius.circular(15.0),

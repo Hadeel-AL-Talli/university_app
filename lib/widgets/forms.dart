@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:university_app/utils/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
@@ -20,7 +19,7 @@ class FormsWidget extends StatelessWidget {
               color: Colors.white,
             ),
             borderRadius: BorderRadius.circular(15),
-            boxShadow: [
+            boxShadow: const [
              BoxShadow(
                 color: Colors.white,offset: Offset(1.0,1.0)
               ),
@@ -41,7 +40,7 @@ class FormsWidget extends StatelessWidget {
               
               
 
-              Text(title ,style:TextStyle(color: Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' ))
+              Text(title ,style:TextStyle(color: const Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' ))
             ],
           ),
         ),
