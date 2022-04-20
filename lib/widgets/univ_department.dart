@@ -49,14 +49,14 @@ class UnivDepartmentWidget extends StatelessWidget {
           ),
          
            Positioned(
-            top:-20,
+            top:-20.h,
             //bottom: 200,
-           left: 50,
+           left: 50.w,
             child: Image.asset('images/department.png', width: 70 , height: 70,)), 
     
            Positioned(
-            left: 65,
-            bottom: 20,
+            left: 65.w,
+            bottom: 20.h,
             child: CircleAvatar(
               maxRadius: 20,
               backgroundColor: Colors.white,

@@ -41,14 +41,14 @@ class MajorWidget extends StatelessWidget {
           ),
     
            Positioned(
-            left: 65,
-            bottom: 15,
+            left: 65.w,
+            bottom: 15.h,
             child: CircleAvatar(
               maxRadius: 20,
               backgroundColor: Color(AppUtils.blueColor),
               child: const Icon(
                 Icons.arrow_back_ios,
-                size: 20,
+                size: 15,
                 color: Colors.white,
               ),
             ),

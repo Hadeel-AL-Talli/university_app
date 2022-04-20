@@ -48,8 +48,8 @@ class Department extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: -10,
-            top: 6,
+            left: -10.w,
+            top: 6.h,
             child: Container(
 
               decoration: const BoxDecoration(

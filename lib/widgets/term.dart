@@ -48,10 +48,10 @@ class TermWidget extends StatelessWidget {
     
           ),
         
-           const Positioned(
-             top:20,
-            left: 15,
-             bottom: 20,
+            Positioned(
+             top:20.h,
+            left: 15.w,
+             bottom: 20.h,
             child: CircleAvatar(
                
               maxRadius: 20,

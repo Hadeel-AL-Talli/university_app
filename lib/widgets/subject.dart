@@ -36,12 +36,12 @@ class SubjectWidget extends StatelessWidget {
         ),
     
          Positioned(
-           right: 20,
-          left: 5,
-          bottom: 20,
+           right: 20.w,
+          left: 5.w,
+          bottom: 20.h,
           child: Container(
-            width: 150,
-            height: 35,
+            width: 150.w,
+            height: 35.h,
              decoration: BoxDecoration(
                borderRadius: BorderRadius.circular(10),
                color: Color(AppUtils.blueColor),
