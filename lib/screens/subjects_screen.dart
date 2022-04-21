@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/subjects.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SubjectsScreens extends StatefulWidget {
   const SubjectsScreens({ Key? key }) : super(key: key);
@@ -34,7 +35,7 @@ class _SubjectsScreensState extends State<SubjectsScreens> {
       ),
 
       body: GridView.builder(  
-         padding: const EdgeInsets.only(left:15),
+         padding:  EdgeInsets.only(left:5.w, right: 5.w, top: 20.h, bottom: 20.h),
               itemCount: 10,  
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(  
                   crossAxisCount: 2,  

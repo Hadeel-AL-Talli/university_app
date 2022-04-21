@@ -30,7 +30,7 @@ class SummaryWidget extends StatelessWidget {
               ]
                 ),
             width: 170.w,
-            height: 165.h,
+            height: 175.h,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [

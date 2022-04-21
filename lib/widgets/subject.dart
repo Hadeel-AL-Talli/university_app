@@ -29,7 +29,7 @@ class SubjectWidget extends StatelessWidget {
             ]
               ),
           width: 170.w,
-          height: 155.h,
+          height: 165.h,
           child: Center(
             child: Image.asset(imagepath)
           ),

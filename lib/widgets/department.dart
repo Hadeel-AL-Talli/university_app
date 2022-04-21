@@ -49,7 +49,7 @@ class Department extends StatelessWidget {
           ),
           Positioned(
             left: -10.w,
-            top: 6.h,
+            top: 10.h,
             child: Container(
 
               decoration: const BoxDecoration(
@@ -61,7 +61,7 @@ class Department extends StatelessWidget {
               ),
               
               child: CircleAvatar(
-                maxRadius: 30,
+                maxRadius: 25,
                 backgroundColor: Colors.white,
                 child: Icon(
                   Icons.arrow_back_ios,

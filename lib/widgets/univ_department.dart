@@ -37,7 +37,7 @@ class UnivDepartmentWidget extends StatelessWidget {
                     bottomLeft: Radius.circular(30.0),
                     bottomRight: Radius.circular(30.0)), ),
             width: 170.w,
-            height: 155.h,
+            height: 160.h,
             child: Center(
               child: Text(
                 title,

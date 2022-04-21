@@ -97,7 +97,7 @@ class _SignInState extends State<SignIn> {
                       SizedBox(height: 15.h,),
                      Text('تسجيل  ' ,
                       style: TextStyle(fontSize: 12.sp ,fontWeight: FontWeight.bold , fontFamily: 'Droid' , color: Colors.white),),
-                      Text(' الدخول ' ,textAlign: TextAlign.center,
+                      Text('الدخول   ' ,textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 12.sp ,fontWeight: FontWeight.bold , fontFamily: 'Droid',color: Colors.white),),
                    ],
                  ),

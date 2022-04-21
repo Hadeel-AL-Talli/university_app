@@ -99,10 +99,9 @@ class _SignUpState extends State<SignUp> {
               },
               child: Container(
              
-              
                
                
-                child: const Center(child: Text('تسجيل', style: TextStyle(fontSize: 16 , fontWeight: FontWeight.bold , fontFamily: 'Droid',color: Colors.white),)),
+                child:  Center(child: Text('تسجيل', style: TextStyle(fontSize: 16.sp , fontWeight: FontWeight.bold , fontFamily: 'Droid',color: Colors.white),)),
                
                 ),
             ),

@@ -24,14 +24,14 @@ class TermWidget extends StatelessWidget {
           Container(
             
             width: 380.w,
-            height: 90.h,
+            height: 100.h,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10 , vertical: 15),
+              padding:  EdgeInsets.symmetric(horizontal: 10.w , vertical: 15.h),
               child: Column(
                 
                 children: [
                  
-                  const SizedBox(height: 10,),
+                   SizedBox(height: 10.h,),
                   Text(name,textAlign: TextAlign.center,style: const TextStyle(color: Colors.blue , fontSize: 22,fontFamily: 'Droid', fontWeight: FontWeight.bold ))
                 ],
               ),

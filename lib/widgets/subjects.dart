@@ -30,7 +30,7 @@ class SubjectsWidget extends StatelessWidget {
               ]
                 ),
             width: 170.w,
-            height: 165.h,
+            height: 180.h,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
