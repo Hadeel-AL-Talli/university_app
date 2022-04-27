@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:university_app/utils/constants.dart';
 
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomUnivItem extends StatelessWidget {
   final String nameEN;
   final String nameAR;
@@ -25,16 +26,16 @@ class CustomUnivItem extends StatelessWidget {
          
           Container(
             
-            width: 310,
-            height: 130,
+            width: 310.w,
+            height: 130.h,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding:  EdgeInsets.symmetric(horizontal: 10.w),
               child: Column(
                 
                 children: [
-                  const SizedBox(height: 10,),
+                   SizedBox(height: 10.h,),
                   Text(nameAR, style: AppUtils.h2),
-                  const SizedBox(height: 10,),
+                   SizedBox(height: 10.h,),
                   Text(nameEN,style: const TextStyle(color: Colors.blue , fontSize: 15,fontFamily: 'Droid', fontWeight: FontWeight.bold ))
                 ],
               ),
@@ -51,11 +52,11 @@ class CustomUnivItem extends StatelessWidget {
     
           ),
           Positioned(
-            right: -30,
-            top:20,
+            right: -20.w,
+            top:20.h,
             child: Container(
-              height: 90,
-              width: 75,
+              height: 90.h,
+              width: 75.w,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
@@ -68,13 +69,13 @@ class CustomUnivItem extends StatelessWidget {
                   )
                   ]
                 ),
-              child: Image.asset(imagePath, width: 70, height: 70,),
+              child: Image.asset(imagePath, width: 70.w, height: 70.h,),
             ),
           ),
-           const Positioned(
-             top:20,
-            left: -20,
-             bottom: 20,
+            Positioned(
+             top:20.h,
+            left: -20.w,
+             bottom: 20.h,
             child: CircleAvatar(
                
               maxRadius: 20,

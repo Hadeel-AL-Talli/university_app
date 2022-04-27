@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:university_app/utils/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 class UnivDepartmentWidget extends StatelessWidget {
 
  // final String imagePath ; 
@@ -50,13 +49,13 @@ class UnivDepartmentWidget extends StatelessWidget {
          
            Positioned(
             top:-20.h,
-            //bottom: 200,
+            
            left: 50.w,
-            child: Image.asset('images/department.png', width: 70 , height: 70,)), 
+            child: Image.asset('images/department.png', width: 80.w , height: 80.h,)), 
     
            Positioned(
             left: 65.w,
-            bottom: 20.h,
+            bottom: 22.h,
             child: CircleAvatar(
               maxRadius: 20,
               backgroundColor: Colors.white,

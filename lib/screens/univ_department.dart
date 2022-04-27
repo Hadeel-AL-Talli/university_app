@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:university_app/widgets/univ_department.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 class UnivDepartment extends StatefulWidget {
   const UnivDepartment({ Key? key }) : super(key: key);
 
@@ -34,7 +34,7 @@ class _UnivDepartmenetState extends State<UnivDepartment> {
  ),
 
  body:Padding(
-   padding: const EdgeInsets.only(top: 40 , left:15 ),
+   padding:  EdgeInsets.only(top: 30.h , left:10.w ),
    child: GridView.builder(
                 itemCount: 10,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

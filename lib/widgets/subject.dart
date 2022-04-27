@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../utils/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 class SubjectWidget extends StatelessWidget {
   final String imagepath;
   final String title;

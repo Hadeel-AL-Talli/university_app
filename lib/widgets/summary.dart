@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 class SummaryWidget extends StatelessWidget {
   final String title;
   final String imagepath;
@@ -30,7 +29,7 @@ class SummaryWidget extends StatelessWidget {
               ]
                 ),
             width: 170.w,
-            height: 175.h,
+            height: 170.h,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [

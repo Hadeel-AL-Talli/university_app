@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../widgets/subjects.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 class SubjectsScreens extends StatefulWidget {
   const SubjectsScreens({ Key? key }) : super(key: key);
 

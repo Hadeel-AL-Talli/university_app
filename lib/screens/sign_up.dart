@@ -5,7 +5,6 @@ import 'package:university_app/widgets/app_text_field.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 class SignUp extends StatefulWidget {
   const SignUp({ Key? key }) : super(key: key);
 
@@ -83,7 +82,7 @@ class _SignUpState extends State<SignUp> {
         ),
          floatingActionButtonLocation: FloatingActionButtonLocation.startDocked,
         floatingActionButton: Padding(
-          padding: const EdgeInsets.all(25.0),
+          padding:  EdgeInsets.only(right:20.0.w,bottom: 20.h ),
           child: Container(
             height:83.h,
       width: 83.w,

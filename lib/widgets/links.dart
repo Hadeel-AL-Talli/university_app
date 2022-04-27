@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 class LinksWidget extends StatelessWidget {
  final String  link;
   const LinksWidget({ Key? key , required this.link}) : super(key: key);

@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:university_app/utils/constants.dart';
 import 'package:university_app/widgets/app_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 class SignIn extends StatefulWidget {
   const SignIn({ Key? key }) : super(key: key);
 
@@ -73,7 +72,7 @@ class _SignInState extends State<SignIn> {
         ),
          floatingActionButtonLocation: FloatingActionButtonLocation.startDocked,
         floatingActionButton: Padding(
-          padding: const EdgeInsets.all(25.0),
+         padding:  EdgeInsets.only(right:20.0.w,bottom: 20.h ),
           child: Container(
             height:83.h,
     width: 83.h,

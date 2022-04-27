@@ -1,6 +1,8 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+
 import 'package:university_app/screens/books_screen.dart';
 import 'package:university_app/screens/department_screen.dart';
 import 'package:university_app/screens/forms_screen.dart';
@@ -39,7 +41,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
+    return  ScreenUtilInit(
       designSize: const Size(375 ,812),
       builder: ((context) => MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -67,5 +69,7 @@ class MyApp extends StatelessWidget {
       )),
       
     );
+      
+    
   }
 }

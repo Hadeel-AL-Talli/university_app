@@ -23,8 +23,8 @@ class _UniversitiesScreenState extends State<UniversitiesScreen> {
               begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: <Color>[
-              Color(0xff3AA8F2),
-              Color(0xff2D475F)
+              
+              Color(0xff2D475F),Color(0xff3AA8F2),
             ])          
          ),        
      ),      
@@ -45,8 +45,8 @@ class _UniversitiesScreenState extends State<UniversitiesScreen> {
               Color(0xff2D475F),Color(0xff3AA8F2),
             ])     
           ),
-         height: 650,
-         width: 103,
+         height: 650.h,
+         width: 103.w,
         
        ),
      ),

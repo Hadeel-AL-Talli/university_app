@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:university_app/utils/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 class MajorWidget extends StatelessWidget {
   final String title;
   const MajorWidget({Key? key, required this.title}) : super(key: key);
@@ -42,7 +41,7 @@ class MajorWidget extends StatelessWidget {
     
            Positioned(
             left: 65.w,
-            bottom: 20.h,
+            bottom: 22.h,
             child: CircleAvatar(
               maxRadius: 20,
               backgroundColor: Color(AppUtils.blueColor),

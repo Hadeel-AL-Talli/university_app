@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:university_app/utils/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 class Department extends StatelessWidget {
   final String title;
   const Department({Key? key, required this.title}) : super(key: key);

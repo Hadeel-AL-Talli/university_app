@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 class VideosWidget extends StatelessWidget {
   final String title;
   final String imagepath;
@@ -25,17 +24,17 @@ class VideosWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
               boxShadow: const [
                BoxShadow(
-                  color: Colors.white,offset: Offset(3.0,1.0)
+                  color: Colors.white,offset: Offset(2.0,1.0)
                 ),
                  
               ]
                 ),
             width: 170.w,
-            height: 175.h,
+            height: 174.h,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                SizedBox(height: 10.h,),
+                SizedBox(height: 15.h,),
                 Center(
                   child: Image.asset(imagepath),
     
@@ -45,7 +44,7 @@ class VideosWidget extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                   
+                   SizedBox(width: 10.w,),
                     Text(title ,style:TextStyle(color: const Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' ,)),
                      Image.asset('images/film.png',),
                   ],
