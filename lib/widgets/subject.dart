@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import '../utils/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 class SubjectWidget extends StatelessWidget {
-  final String imagepath;
+   final String imagepath;
   final String title;
    
-   const SubjectWidget({ Key? key , required this.imagepath , required this.title }) : super(key: key);
+    SubjectWidget({ Key? key , required this.title ,required this.imagepath  , }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class SubjectWidget extends StatelessWidget {
           width: 170.w,
           height: 165.h,
           child: Center(
-            child: Image.asset(imagepath)
+            child: Image.asset(imagepath!)
           ),
         ),
     

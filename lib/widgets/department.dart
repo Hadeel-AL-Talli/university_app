@@ -7,71 +7,66 @@ class Department extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: (){
-        Navigator.pushNamed(context, '/major_screen');
-      },
-      child: Stack(
-      
-        clipBehavior: Clip.none,
-        children: [
-          Container(
-           
-            width: 330.w,
-            height: 67.h,
-            child: Center(
-              child: Text(
-                 title,
+    return Stack(
+    
+      clipBehavior: Clip.none,
+      children: [
+        Container(
          
-               
-                
-                style:AppUtils.h1
-              ),
-            ),
-            decoration: BoxDecoration(
-              boxShadow: const[
-                BoxShadow(
-                  color: Colors.grey,
-                  offset:  Offset(
-                    0.1,
-                    1.0,
-                  ),
-                ),
-              ],
-              borderRadius: const BorderRadius.only(
-                  topRight: Radius.circular(15),
-                  bottomLeft: Radius.circular(30),
-                  bottomRight: Radius.circular(15),
-                  topLeft: Radius.circular(30)),
-              color: Color(AppUtils.blueColor),
-            ),
-          ),
-          Positioned(
-            left: -10.w,
-            top: 10.h,
-            child: Container(
-
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(color: Colors.grey, spreadRadius: 0.3)
-                ]
-              ),
+          width: 330.w,
+          height: 67.h,
+          child: Center(
+            child: Text(
+               title,
+       
+             
               
-              child: CircleAvatar(
-                maxRadius: 25,
-                backgroundColor: Colors.white,
-                child: Icon(
-                  Icons.arrow_back_ios,
-                  size: 25,
-                  color: Color(AppUtils.blueColor),
+              style:AppUtils.h1
+            ),
+          ),
+          decoration: BoxDecoration(
+            boxShadow: const[
+              BoxShadow(
+                color: Colors.grey,
+                offset:  Offset(
+                  0.1,
+                  1.0,
                 ),
+              ),
+            ],
+            borderRadius: const BorderRadius.only(
+                topRight: Radius.circular(15),
+                bottomLeft: Radius.circular(30),
+                bottomRight: Radius.circular(15),
+                topLeft: Radius.circular(30)),
+            color: Color(AppUtils.blueColor),
+          ),
+        ),
+        Positioned(
+          left: -10.w,
+          top: 10.h,
+          child: Container(
+
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(color: Colors.grey, spreadRadius: 0.3)
+              ]
+            ),
+            
+            child: CircleAvatar(
+              maxRadius: 25,
+              backgroundColor: Colors.white,
+              child: Icon(
+                Icons.arrow_back_ios,
+                size: 25,
+                color: Color(AppUtils.blueColor),
               ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

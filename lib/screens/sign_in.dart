@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:university_app/controllers/api_helper.dart';
+import 'package:university_app/controllers/auth_api_controller.dart';
 import 'package:university_app/utils/constants.dart';
 import 'package:university_app/widgets/app_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,7 +12,7 @@ class SignIn extends StatefulWidget {
   State<SignIn> createState() => _SignInState();
 }
 
-class _SignInState extends State<SignIn> {
+class _SignInState extends State<SignIn> with ApiHelper {
  
    late TextEditingController _email ;
     late TextEditingController _password ;  
@@ -65,14 +67,17 @@ class _SignInState extends State<SignIn> {
                      margin: const EdgeInsets.only(right: 50 , left: 50),
                     child: AppTextField(hint: 'كلمة السر  ', controller: _password)), 
         
-        
+            SizedBox(height: 100.h,),
+            TextButton(onPressed: (){
+              Navigator.pushNamed(context, '/SignUp');
+            }, child: Text('ليس لدي حساب , إنشاء حساب ' , style: AppUtils.h3,))
                    
         
           ],),
         ),
          floatingActionButtonLocation: FloatingActionButtonLocation.startDocked,
         floatingActionButton: Padding(
-         padding:  EdgeInsets.only(right:20.0.w,bottom: 20.h ),
+         padding:  EdgeInsets.only(right:30.0.w,),
           child: Container(
             height:83.h,
     width: 83.h,
@@ -84,11 +89,13 @@ class _SignInState extends State<SignIn> {
         //more than 50% of width makes circle
     ),
             child: InkWell(
-              onTap: (){
-                 Navigator.pushNamed(context, '/univ_screen');
+              onTap: () async{
+
+                await performLogin();   
+                // Navigator.pushNamed(context, '/univ_screen');
               },
               child: Container(
-              
+                
                
                  child: Column(
                  //  crossAxisAlignment: CrossAxisAlignment.center,
@@ -113,5 +120,34 @@ class _SignInState extends State<SignIn> {
         ),
       ),
     );
+  }
+
+
+   Future<void> performLogin() async {
+    if (checkData()) {
+      await login();
+    }
+  }
+
+  bool checkData() {
+    if (_email.text.isNotEmpty &&
+        _password.text.isNotEmpty) {
+      return true;
+    }
+    showSnackBar(
+      context,
+      message: 'Enter required data!',
+      error: true,
+    );
+    return false;
+  }
+
+  Future<void> login() async {
+    bool status = await AuthApiController().login(
+      context,
+      email: _email.text,
+      password: _password.text,
+    );
+    if (status) Navigator.pushReplacementNamed(context, '/univ_screen');
   }
 }

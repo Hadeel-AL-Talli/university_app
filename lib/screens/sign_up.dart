@@ -1,5 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:university_app/controllers/api_helper.dart';
+import 'package:university_app/controllers/auth_api_controller.dart';
+import 'package:university_app/models/register_user.dart';
 import 'package:university_app/utils/constants.dart';
 import 'package:university_app/widgets/app_text_field.dart';
 
@@ -12,10 +17,11 @@ class SignUp extends StatefulWidget {
   State<SignUp> createState() => _SignUpState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignUpState extends State<SignUp> with ApiHelper {
   late TextEditingController _name ; 
    late TextEditingController _email ;
-    late TextEditingController _password ;  
+    late TextEditingController _password ; 
+    late TextEditingController _phone; 
   @override
   void initState() {
     // TODO: implement initState
@@ -23,6 +29,7 @@ class _SignUpState extends State<SignUp> {
     _name= TextEditingController();
     _email = TextEditingController();
     _password = TextEditingController();
+    _phone = TextEditingController();
   }
   @override
   void dispose() {
@@ -30,13 +37,14 @@ class _SignUpState extends State<SignUp> {
     _name.dispose();
     _email.dispose();
     _password.dispose();
+    _phone.dispose();
     super.dispose();
   }
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration:  const BoxDecoration(
-         image: DecorationImage(image: AssetImage('images/bc.png',  ), fit: BoxFit.cover),
+         image: DecorationImage(image: AssetImage('images/bc.png',   ), fit: BoxFit.cover),
           // gradient: LinearGradient(
           //     begin: Alignment.topLeft,
           //     end: Alignment.bottomRight,
@@ -64,7 +72,10 @@ class _SignUpState extends State<SignUp> {
                    child: AppTextField(hint: 'اسم الطالب', controller: _name)), 
                  Container(
                     margin: const EdgeInsets.only(right: 50 , left: 50),
-                   child: AppTextField(hint: 'رقم الجوال أو الايميل ', controller: _email)),
+                   child: AppTextField(hint: 'رقم الجوال  ', keyboardType: TextInputType.number,controller: _phone)),
+                   Container(
+                    margin: const EdgeInsets.only(right: 50 , left: 50),
+                   child: AppTextField(hint: 'الإيميل ', controller: _email)),
                   Container(
                      margin: const EdgeInsets.only(right: 50 , left: 50),
                     child: AppTextField(hint: 'كلمة السر  ', controller: _password)), 
@@ -74,18 +85,20 @@ class _SignUpState extends State<SignUp> {
                     Text('إكمال عملية التسجيل من خلال الواتسآب' ,textAlign: TextAlign.center ,style:AppUtils.h3White),
                     SizedBox(height: 15.h,),
                     GestureDetector(child: SvgPicture.asset('images/whatsapp.svg')),
-                    
-                
+                    SizedBox(height: 10.h,),
+                    TextButton(onPressed: (){
+                       Navigator.pushNamed(context, '/sign_in');
+                    }, child: Text('لدي حساب بالفعل, تسجيل دخول ',style:AppUtils.h3 ,))
                 
           ],),
           
         ),
          floatingActionButtonLocation: FloatingActionButtonLocation.startDocked,
         floatingActionButton: Padding(
-          padding:  EdgeInsets.only(right:20.0.w,bottom: 20.h ),
-          child: Container(
-            height:83.h,
-      width: 83.w,
+          padding:  EdgeInsets.only(right:20.w ),
+          child: Container( 
+            height:80.h,
+      width: 80.w,
       decoration: BoxDecoration(
       gradient:const LinearGradient(colors: [Color(0xff3AA8F2),Color(0xff2D475F)]),
      
@@ -93,12 +106,12 @@ class _SignUpState extends State<SignUp> {
         //more than 50% of width makes circle
       ),
             child: InkWell(
-              onTap: (){
-                 Navigator.pushNamed(context, '/sign_in');
+              onTap: () async{
+                 //Navigator.pushNamed(context, '/sign_in');
+                 await performRegister();
               },
               child: Container(
-             
-               
+            
                
                 child:  Center(child: Text('تسجيل', style: TextStyle(fontSize: 16.sp , fontWeight: FontWeight.bold , fontFamily: 'Droid',color: Colors.white),)),
                
@@ -108,5 +121,45 @@ class _SignUpState extends State<SignUp> {
         ),
       ),
     );
+  }
+
+
+  Future<void> performRegister() async{
+    if(checkData()){
+      await register();
+    }
+  } 
+
+  bool checkData(){
+    if(_phone.text.isNotEmpty && _email.text.isNotEmpty && _password.text.isNotEmpty && _name.text.isNotEmpty){
+      return true;
+    }
+    showSnackBar(
+      context,
+      message: 'Enter required data!',
+      error: true,
+    );
+    return false;
+  }
+
+  Future<void> register()async{
+    bool status = await AuthApiController().register(context, user: user);
+    if(status) {
+       showSnackBar(context, message:'تم انشاء الحساب بنجاح' );
+       Navigator.pushNamed(context, '/sign_in');
+    }
+
+  }
+
+
+  RegisterUser get user {
+    RegisterUser user = RegisterUser();
+    user.name = _name.text;
+    user.email = _email.text;
+    user.password = _password.text;
+    user.phone = _phone.text;
+
+
+    return user; 
   }
 }

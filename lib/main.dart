@@ -19,20 +19,16 @@ import 'package:university_app/screens/univ_screen.dart';
 import 'package:university_app/screens/videos_screen.dart';
 import 'package:university_app/screens/voice_screen.dart';
 
+import 'prefs/shared_prefs_controller.dart';
 import 'screens/sign_up.dart';
 
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SharedPrefController().initPref();
   runApp(
     const MyApp()
-    // DevicePreview(
-    //   enabled: true,
-    //   tools: [
-    //     ...DevicePreview.defaultTools,
-        
-    //   ],
-    //   builder: (context) => const MyApp(),
-    // ),
+    
     );
 }
 
@@ -51,8 +47,8 @@ class MyApp extends StatelessWidget {
           '/SignUp':(context)=> const SignUp(),
              '/sign_in':((context) => const SignIn()),
           '/univ_screen'  :(context)=> const UniversitiesScreen(),
-          '/univ_department':(context)=> const UnivDepartment(), 
-          '/department_screen' : (context)=> const DepartmentScreen(),
+        //  '/univ_department':(context)=> const UnivDepartment(), 
+         // '/department_screen' : (context)=> const DepartmentScreen(),
           '/major_screen' :((context) => const MajorScreen()),
           '/term_screen':(context)=>const TermScreen(),
           '/subject_screen' : ((context) => const SubjectScreen()),

@@ -1,14 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:university_app/controllers/home_api_controller.dart';
+import 'package:university_app/models/dep_model.dart';
+import 'package:university_app/screens/department_screen.dart';
 import 'package:university_app/widgets/univ_department.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 class UnivDepartment extends StatefulWidget {
-  const UnivDepartment({ Key? key }) : super(key: key);
+  const UnivDepartment({ Key? key , required this.id }) : super(key: key);
+  final int id ;
 
   @override
   State<UnivDepartment> createState() => _UnivDepartmenetState();
 }
 
 class _UnivDepartmenetState extends State<UnivDepartment> {
+
+   late Future<List<DepartmentModel>> _future;
+  List<DepartmentModel> _department = <DepartmentModel>[];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _future = HomeApiController().getDepatement(widget.id.toString());
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,17 +49,50 @@ class _UnivDepartmenetState extends State<UnivDepartment> {
 
  body:Padding(
    padding:  EdgeInsets.only(top: 30.h , left:10.w ),
-   child: GridView.builder(
-                itemCount: 10,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    
-
-                ),
-                itemBuilder: (BuildContext context, int index){
-                  return const UnivDepartmentWidget(title: 'القسم الأول');
-                },
+   child: FutureBuilder<List<DepartmentModel>>(
+     future: _future,
+     builder:(context, snapshot){
+      if(snapshot.connectionState == ConnectionState.waiting){
+        return Center(child: CircularProgressIndicator(),);
+      }
+      else if (snapshot.hasData && snapshot.data!.isNotEmpty){
+      _department = snapshot.data ??[];
+      return  GridView.builder(
+                  itemCount: _department.length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      
+   
+                  ),
+                  itemBuilder: (BuildContext context, int index){
+                    return  InkWell(
+                      onTap: (){
+                        print('clicked');
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => DepartmentScreen(id: _department[index].id)));
+                      },
+                      child: UnivDepartmentWidget(title: _department[index].name , imagePath: _department[index].photo,));
+                  },
+                );
+      }
+      else{
+          return Center(
+              child: Column(
+                children: const [
+                  Icon(Icons.warning, size: 80),
+                  Text(
+                    'NO DATA',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                    ),
+                  )
+                ],
               ),
+            );
+      }
+     }
+   ),
  ),
     );
   }

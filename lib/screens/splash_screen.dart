@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:university_app/prefs/shared_prefs_controller.dart';
 import 'package:university_app/utils/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,7 +17,11 @@ class _SplashScreenState extends State<SplashScreen> {
     
     super.initState();
     Future.delayed(const Duration(seconds: 3),(){
-   Navigator.pushReplacementNamed(context, '/SignUp');
+        // Navigator.pushReplacementNamed(context, '/SignUp');
+        String route = SharedPrefController().loggedIn
+          ? '/univ_screen'
+          : '/sign_in';
+      Navigator.pushReplacementNamed(context, route);
     });
   }
   @override

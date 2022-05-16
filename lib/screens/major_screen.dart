@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:university_app/controllers/home_api_controller.dart';
+import 'package:university_app/models/years_model.dart';
+import 'package:university_app/screens/term.dart';
 import 'package:university_app/widgets/major.dart';
 
 class MajorScreen extends StatefulWidget {
@@ -9,6 +12,15 @@ class MajorScreen extends StatefulWidget {
 }
 
 class _MajorScreenState extends State<MajorScreen> {
+   late Future<List<YearsModel>> _future;
+  List<YearsModel> _majorYears = <YearsModel>[];
+
+  @override
+  void initState() {
+    
+    super.initState();
+    _future = HomeApiController().getYears();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,17 +47,49 @@ class _MajorScreenState extends State<MajorScreen> {
 
  body: Padding(
    padding: const EdgeInsets.only(top:60.0 ),
-   child: GridView.builder( 
-     padding: const EdgeInsets.only(left:10), 
-                itemCount: 10,  
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(  
-                    crossAxisCount: 2,  
-                  
-                ),  
-                itemBuilder: (BuildContext context, int index){  
-                  return const MajorWidget(title: 'سنة أولى');
-                },  
+   child: FutureBuilder<List<YearsModel>>(
+     future: _future,
+     builder: (context, snapshot) {
+      if(snapshot.connectionState == ConnectionState.waiting){
+        return Center(child: CircularProgressIndicator(),);
+      }
+      else if (snapshot.hasData && snapshot.data!.isNotEmpty){
+        _majorYears = snapshot.data ??[];
+        print('years DATA');
+         return GridView.builder( 
+         padding: const EdgeInsets.only(left:10), 
+                    itemCount: _majorYears.length,  
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(  
+                        crossAxisCount: 2,   
+                      
+                    ),  
+                    itemBuilder: (BuildContext context, int index){  
+                      return  InkWell(
+               onTap:()=>  Navigator.push(context, MaterialPageRoute(builder: (context) => TermScreen())),
+
+                        child: MajorWidget(title: _majorYears[index].name));
+                    },  
+                  );
+      }
+      else {
+         return Center(
+              child: Column(
+                children: const [
+                  Icon(Icons.warning, size: 80),
+                  Text(
+                    'NO DATA',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                    ),
+                  )
+                ],
               ),
+            );
+      }
+     }
+   ),
  ),
     );
   }

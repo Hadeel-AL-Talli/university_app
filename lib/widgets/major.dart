@@ -7,53 +7,47 @@ class MajorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: (){
-       
-       Navigator.pushNamed(context, '/term_screen');
-      },
-      child: Stack(
-        children: [
-          Container(
+    return Stack(
+      children: [
+        Container(
     
-            decoration: BoxDecoration(
-              border: Border.all(
-                width: 1,
-                color: Color(AppUtils.blueColor),
-              ),
-                borderRadius: const BorderRadius.only(
-                    
-                    topRight: Radius.circular(15.0),
-                    topLeft: Radius.circular(15.0),
-                    bottomLeft: Radius.circular(30.0),
-                    bottomRight: Radius.circular(30.0)), ),
-            width: 170.w,
-            height: 160.h,
-            child: Center(
-              child: Text(
-                title,
-                
-                
-                style: AppUtils.h2,
-              ),
+          decoration: BoxDecoration(
+            border: Border.all(
+              width: 1,
+              color: Color(AppUtils.blueColor),
+            ),
+              borderRadius: const BorderRadius.only(
+                  
+                  topRight: Radius.circular(15.0),
+                  topLeft: Radius.circular(15.0),
+                  bottomLeft: Radius.circular(30.0),
+                  bottomRight: Radius.circular(30.0)), ),
+          width: 170.w,
+          height: 155.h,
+          child: Center(
+            child: Text(
+              title,
+              
+              
+              style: AppUtils.h2,
             ),
           ),
+        ),
     
-           Positioned(
-            left: 65.w,
-            bottom: 22.h,
-            child: CircleAvatar(
-              maxRadius: 20,
-              backgroundColor: Color(AppUtils.blueColor),
-              child: const Icon(
-                Icons.arrow_back_ios,
-                size: 15,
-                color: Colors.white,
-              ),
+         Positioned(
+          left: 65.w,
+          bottom: 28.h,
+          child: CircleAvatar(
+            maxRadius: 20,
+            backgroundColor: Color(AppUtils.blueColor),
+            child: const Icon(
+              Icons.arrow_back_ios,
+              size: 15,
+              color: Colors.white,
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

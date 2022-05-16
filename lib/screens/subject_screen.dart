@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:university_app/controllers/home_api_controller.dart';
+import 'package:university_app/models/resource_type.dart';
 import 'package:university_app/widgets/subject.dart';
 
 class SubjectScreen extends StatefulWidget {
@@ -9,6 +11,15 @@ class SubjectScreen extends StatefulWidget {
 }
 
 class _SubjectScreenState extends State<SubjectScreen> {
+    late Future<List<ResourceType>> _future;
+  List<ResourceType> _resourceType = <ResourceType>[];
+
+  @override
+  void initState() {
+    
+    super.initState();
+    _future = HomeApiController().getResourceType();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,49 +42,46 @@ class _SubjectScreenState extends State<SubjectScreen> {
          ),        
      ),
       ),
-      body: GridView(  
-         padding: const EdgeInsets.only(left: 15),
-                
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(  
-                  crossAxisCount: 2,  
-                  
-                
-              ),  
-              children: [
-                InkWell(
-                  onTap: (){
-                    Navigator.pushNamed(context, '/VideosScreen');
-                  },
-                  child: const SubjectWidget(imagepath:'images/video.png', title: 'الفيديوهات', )),
-                InkWell(
-                  onTap: (){
-                     Navigator.pushNamed(context, '/books_screen');
-                  },
-                  child: const SubjectWidget(imagepath:'images/book.png', title: 'الكتب', )),
-                InkWell(
-                  onTap: (){
-                     Navigator.pushNamed(context, '/forms_screen');
-                  },
-                  child: const SubjectWidget(imagepath:'images/form.png', title: 'نماذج', )),
-                InkWell(
-                  onTap: (){
-                    Navigator.pushNamed(context, '/summary_screen');
-                  },
-                  child: const SubjectWidget(imagepath:'images/summary.png', title: 'الملخصات', )),
-                InkWell(
-                  onTap: (){
-                    Navigator.pushNamed(context, '/links_screen');
-                  },
-                  child: const SubjectWidget(imagepath:'images/link.png', title: 'روابط', )),
-                InkWell(
-                  onTap: (){
-                    Navigator.pushNamed(context, '/voiceScreen');
-                  },
-                  child: const SubjectWidget(imagepath:'images/voice.png', title: 'الصوت', )),
-                
-              ],
-               
-            ),
+      body: FutureBuilder<List<ResourceType>>(
+        future: _future,
+        builder: (context, snapshot) {
+
+           if(snapshot.connectionState == ConnectionState.waiting){
+        return Center(child: CircularProgressIndicator(),);
+      }
+      else if (snapshot.hasData && snapshot.data!.isNotEmpty){
+        _resourceType = snapshot.data ??[];
+          return GridView.builder(
+            itemCount: _resourceType.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(  
+                      crossAxisCount: 2,  
+                      
+                    
+                  ),  itemBuilder: (context , index){
+                   
+                       return SubjectWidget(  title: _resourceType[index].name , imagepath: 'images/link.png', );
+                  });
+        }
+
+        else{
+           return Center(
+              child: Column(
+                children: const [
+                  Icon(Icons.warning, size: 80),
+                  Text(
+                    'NO DATA',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                    ),
+                  )
+                ],
+              ),
+            );
+        }
+        }
+      ),
     );
   }
 }
