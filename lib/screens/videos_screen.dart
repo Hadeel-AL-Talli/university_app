@@ -1,14 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:university_app/controllers/home_api_controller.dart';
+import 'package:university_app/models/video.dart';
 import 'package:university_app/widgets/videos.dart';
 
 class VideosScreen extends StatefulWidget {
-  const VideosScreen({ Key? key }) : super(key: key);
+  const VideosScreen({ Key? key  , required this.id}) : super(key: key);
+  final int id;
 
   @override
   State<VideosScreen> createState() => _VideosScreenState();
 }
 
 class _VideosScreenState extends State<VideosScreen> {
+   late Future<List<VideoModel>> _future;
+  List<VideoModel> _video = <VideoModel>[];
+
+  @override
+  void initState() {
+    
+    super.initState();
+    _future = HomeApiController().getVideo(widget.id.toString());
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,18 +44,47 @@ class _VideosScreenState extends State<VideosScreen> {
      ),
       ),
 
-      body: GridView.builder(
-        padding: const EdgeInsets.only(left: 15),
-                itemCount: 10,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    
+      body: FutureBuilder<List<VideoModel>>(
+        future: _future,
+        builder: (context, snapshot) {
+           if(snapshot.connectionState == ConnectionState.waiting){
+        return Center(child: CircularProgressIndicator(),);
+      }
+      else if (snapshot.hasData && snapshot.data!.isNotEmpty){
+        _video = snapshot.data ??[];
+          return GridView.builder(
+            padding: const EdgeInsets.only(left: 15),
+                    itemCount: _video.length,
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        
+      
+                    ),
+                    itemBuilder: (BuildContext context, int index){
+                     return  VideosWidget(title:_video[index].name, imagepath: 'images/vd.png');
+                    },
+                  );
 
-                ),
-                itemBuilder: (BuildContext context, int index){
-                 return const VideosWidget(title: 'عنوان الفيديو', imagepath: 'images/vd.png');
-                },
+      }
+      else {
+         return Center(
+              child: Column(
+                children: const [
+                  Icon(Icons.warning, size: 80),
+                  Text(
+                    'NO DATA',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                    ),
+                  )
+                ],
               ),
+            );
+      }
+        }
+      ),
 
     
     );

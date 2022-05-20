@@ -64,7 +64,7 @@ class AuthApiController with ApiHelper{
       print(user);
       RegisterUser userlogin = RegisterUser.fromJson(user);
 
-      SharedPrefController().save(user: userlogin , token: token );
+      await   SharedPrefController().save(user: userlogin , token: token );
     
       showSnackBar(
         context,

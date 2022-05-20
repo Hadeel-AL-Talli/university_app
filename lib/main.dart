@@ -49,16 +49,16 @@ class MyApp extends StatelessWidget {
           '/univ_screen'  :(context)=> const UniversitiesScreen(),
         //  '/univ_department':(context)=> const UnivDepartment(), 
          // '/department_screen' : (context)=> const DepartmentScreen(),
-          '/major_screen' :((context) => const MajorScreen()),
-          '/term_screen':(context)=>const TermScreen(),
-          '/subject_screen' : ((context) => const SubjectScreen()),
-          '/subjects_screen':(context)=>const SubjectsScreens(),
-          '/books_screen':(context)=>const BooksScreen(),
-          '/summary_screen':(context)=> const SummaryScreen(),
-          '/forms_screen':(context)=> const FormsScreen()     ,
-          '/links_screen':(context)=> const Links()  ,
-          '/VideosScreen' :(context)=> const VideosScreen() ,
-          '/voiceScreen':(context)=> const Voice()
+         // '/major_screen' :((context) => const MajorScreen()),
+        //  '/term_screen':(context)=>const TermScreen(),
+        //  '/subject_screen' : ((context) => const SubjectScreen()),
+        //  '/subjects_screen':(context)=>const SubjectsScreens(),
+         // '/books_screen':(context)=>const BooksScreen(),
+         // '/summary_screen':(context)=> const SummaryScreen(),
+         // '/forms_screen':(context)=> const FormsScreen()     ,
+         // '/links_screen':(context)=> const Links()  ,
+         // '/VideosScreen' :(context)=> const VideosScreen() ,
+         // '/voiceScreen':(context)=> const Voice()
     
     
         },

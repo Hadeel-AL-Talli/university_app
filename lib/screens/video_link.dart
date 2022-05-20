@@ -1,27 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:university_app/controllers/home_api_controller.dart';
 import 'package:university_app/models/links.dart';
+import 'package:university_app/models/video_link.dart';
 import 'package:university_app/widgets/links.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:university_app/widgets/video_link.dart';
 
 
-class Links extends StatefulWidget {
-  const Links({ Key? key , required this.id}) : super(key: key);
+class VideoLinks extends StatefulWidget {
+  const VideoLinks({ Key? key , required this.id}) : super(key: key);
   final int id ;
 
   @override
-  State<Links> createState() => _LinksState();
+  State<VideoLinks> createState() => _VideoLinksState();
 }
 
-class _LinksState extends State<Links> {
-   late Future<List<LinksModel>> _future;
-  List<LinksModel> _links = <LinksModel>[];
+class _VideoLinksState extends State<VideoLinks> {
+   late Future<List<VideoLinksModel>> _future;
+  List<VideoLinksModel> _videolinks = <VideoLinksModel>[];
 
   @override
   void initState() {
     
     super.initState();
-    _future = HomeApiController().getLinks(widget.id.toString());
+    _future = HomeApiController().getVideoUrl(widget.id.toString());
   }
   @override
   Widget build(BuildContext context) {
@@ -48,7 +50,7 @@ class _LinksState extends State<Links> {
 
       body: Padding(
         padding: const EdgeInsets.only(top:30.0),
-        child: FutureBuilder<List<LinksModel>>(
+        child: FutureBuilder<List<VideoLinksModel>>(
           future: _future,
           builder: (context, snapshot) {
 
@@ -56,15 +58,15 @@ class _LinksState extends State<Links> {
         return Center(child: CircularProgressIndicator(),);
       }
       else if (snapshot.hasData && snapshot.data!.isNotEmpty){
-         _links = snapshot.data ??[];
+         _videolinks = snapshot.data ??[];
             return ListView.builder(
              
-              itemCount: _links.length,
+              itemCount: _videolinks.length,
               itemBuilder: (context, index) {
               return Column(
                 children: [
                   SizedBox(height: 10.h,),
-                   LinksWidget(link: _links[index].name , res: _links[index].res,),
+                  VideoLinksWidget(link: _videolinks[index].name , res: _videolinks[index].res,),
                 ],
               );
             },);

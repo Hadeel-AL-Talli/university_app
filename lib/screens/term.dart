@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:university_app/controllers/home_api_controller.dart';
+import 'package:university_app/models/major_dep.dart';
 import 'package:university_app/models/semester.dart';
+import 'package:university_app/models/years_model.dart';
+import 'package:university_app/screens/subjects_screen.dart';
 import 'package:university_app/widgets/term.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TermScreen extends StatefulWidget {
-  const TermScreen({ Key? key }) : super(key: key);
+  const TermScreen({ Key? key , required this.mid  , required this.yid}) : super(key: key);
+  final int mid;
+  final int yid;
+
 
   @override
   State<TermScreen> createState() => _TermScreenState();
@@ -61,7 +67,10 @@ class _TermScreenState extends State<TermScreen> {
           
            children: [
              SizedBox(height: 50.h,),
-             TermWidget(name: _semester[index].name),
+             InkWell(
+      onTap:()=>  Navigator.push(context, MaterialPageRoute(builder: (context) => SubjectsScreens(mid:widget.mid , yid:widget.yid , sid: _semester[index].id, ))),
+
+               child: TermWidget(name: _semester[index].name)),
 
              
             

@@ -64,7 +64,7 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
            SizedBox(height: 20.h,),
   InkWell(
     onTap: () {
-       Navigator.push(context, MaterialPageRoute(builder: (context) => MajorScreen()));
+       Navigator.push(context, MaterialPageRoute(builder: (context) => MajorScreen(id: _major[index].id)));
     },
     child: Department(title: _major[index].name))
          ],

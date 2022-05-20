@@ -31,15 +31,20 @@ class FormsWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               SizedBox(height: 10.h,),
-              Center(
-                child: Image.asset(imagepath),
-    
+              Expanded(
+                flex: 3,
+                child: Center(
+                  child: Image.asset(imagepath),
+                  
+                ),
               ),
     
-              
+               SizedBox(height: 5.h,),
               
 
-              Text(title ,style:TextStyle(color: const Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' ))
+              Expanded(
+                flex: 2,
+                child: Text(title ,style:TextStyle(color: const Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' )))
             ],
           ),
         ),

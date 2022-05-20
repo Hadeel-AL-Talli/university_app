@@ -1,15 +1,31 @@
+
 import 'package:flutter/material.dart';
+import 'package:university_app/controllers/home_api_controller.dart';
+import 'package:university_app/models/book.dart';
+import 'package:university_app/screens/SummaryPDF.dart';
 import 'package:university_app/widgets/books.dart';
 
 
+
+
 class BooksScreen extends StatefulWidget {
-  const BooksScreen({ Key? key }) : super(key: key);
+  const BooksScreen({ Key? key , required this.id }) : super(key: key);
+  final int id;
 
   @override
   State<BooksScreen> createState() => _BooksScreenState();
 }
 
 class _BooksScreenState extends State<BooksScreen> {
+   late Future<List<BookModel>> _future;
+  List<BookModel> _books = <BookModel>[];
+
+  @override
+  void initState() {
+    
+    super.initState();
+    _future = HomeApiController().getBooks(widget.id.toString());
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,17 +49,49 @@ class _BooksScreenState extends State<BooksScreen> {
      ),
       ),
 
-      body:  GridView.builder(  
-         padding: const EdgeInsets.only(left: 15),
-              itemCount: 10,  
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(  
-                  crossAxisCount: 2,  
-                
-              ),  
-              itemBuilder: (BuildContext context, int index){  
-                return const BooksWidget(title: 'اسم الكتاب ' , imagepath: 'images/pdf.png',);
-              },  
-            ),
+      body:  FutureBuilder<List<BookModel>>(
+        future: _future,
+        builder: (context, snapshot) {
+            if(snapshot.connectionState == ConnectionState.waiting){
+        return Center(child: CircularProgressIndicator(),);
+      }
+      else if (snapshot.hasData && snapshot.data!.isNotEmpty){
+        _books = snapshot.data ??[];
+          return GridView.builder(  
+             padding: const EdgeInsets.only(left: 15),
+                  itemCount: _books.length,  
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(  
+                      crossAxisCount: 2,  
+                    
+                  ),  
+                  itemBuilder: (BuildContext context, int index){  
+                    return  InkWell(
+                      onTap: ()async{
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> SummaryPDF(res: _books[index].res , name:_books[index].name)));
+                      },
+                      child: BooksWidget(title: _books[index].name , imagepath: 'images/pdf.png',));
+                  },  
+                );
+        }
+        else {
+           return Center(
+              child: Column(
+                children: const [
+                  Icon(Icons.warning, size: 80),
+                  Text(
+                    'NO DATA',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                    ),
+                  )
+                ],
+              ),
+            );
+        }
+        }
+      ),
     );
   }
 }

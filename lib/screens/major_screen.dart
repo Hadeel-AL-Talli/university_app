@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:university_app/controllers/home_api_controller.dart';
+import 'package:university_app/models/major_dep.dart';
 import 'package:university_app/models/years_model.dart';
 import 'package:university_app/screens/term.dart';
 import 'package:university_app/widgets/major.dart';
 
 class MajorScreen extends StatefulWidget {
-  const MajorScreen({ Key? key }) : super(key: key);
+  const MajorScreen({ Key? key , required this.id }) : super(key: key);
+  final int id ;
 
   @override
   State<MajorScreen> createState() => _MajorScreenState();
@@ -14,6 +16,8 @@ class MajorScreen extends StatefulWidget {
 class _MajorScreenState extends State<MajorScreen> {
    late Future<List<YearsModel>> _future;
   List<YearsModel> _majorYears = <YearsModel>[];
+
+   List<MajorModel> _major = <MajorModel>[];
 
   @override
   void initState() {
@@ -65,7 +69,7 @@ class _MajorScreenState extends State<MajorScreen> {
                     ),  
                     itemBuilder: (BuildContext context, int index){  
                       return  InkWell(
-               onTap:()=>  Navigator.push(context, MaterialPageRoute(builder: (context) => TermScreen())),
+               onTap:()=>  Navigator.push(context, MaterialPageRoute(builder: (context) => TermScreen(mid: widget.id, yid:_majorYears[index].id, ))),
 
                         child: MajorWidget(title: _majorYears[index].name));
                     },  

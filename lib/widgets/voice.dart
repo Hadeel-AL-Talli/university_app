@@ -5,36 +5,56 @@ import 'package:flutter_svg/svg.dart';
 
 class VoiceWidget extends StatelessWidget {
  final String  link;
-  const VoiceWidget({ Key? key , required this.link}) : super(key: key);
+ final String name ;
+  const VoiceWidget({ Key? key , required this.link , required this.name}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
 
 
 
-    return InkWell(
-      onTap: (){
-        //
-      },
-      child: PhysicalModel(
-          color: Colors.white,
-          elevation: 18,
-          shadowColor: Colors.grey.shade100,
-          borderRadius: BorderRadius.circular(15),
-          child: ListTile(
-           trailing: SvgPicture.asset('images/play.svg'),
-            title: Text(
-              link,
-              textDirection: TextDirection.rtl,
-              style: TextStyle(
-                fontSize: 14.sp,
-                fontFamily: 'Droid',
-                color: Colors.blueAccent,
+    return Column(
+      children: [
+        PhysicalModel(
+            color: Colors.white,
+            elevation: 18,
+            shadowColor: Colors.grey.shade100,
+            borderRadius: BorderRadius.circular(15),
+            child: ListTile(
+             trailing: SvgPicture.asset('images/play.svg'),
+              title: Text(
+                name,
+                textDirection: TextDirection.rtl,
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  fontFamily: 'Droid',
+                  color: Colors.blueAccent,
+                ),
               ),
+            
             ),
-          
+
+            
           ),
+  Visibility(
+    visible: false,
+    child: ListTile(
+     
+      title: Text(
+        link,
+        textDirection: TextDirection.rtl,
+        style: TextStyle(
+          fontSize: 14.sp,
+          fontFamily: 'Droid',
+          color: Colors.white,
         ),
+      ),
+    
+    ),
+  ),
+
+          
+      ],
     );
     // return Material(
     //   elevation: 21,

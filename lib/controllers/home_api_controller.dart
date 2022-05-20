@@ -1,11 +1,19 @@
 import 'dart:convert';
 
 import 'package:university_app/controllers/api_helper.dart';
+import 'package:university_app/models/book.dart';
+import 'package:university_app/models/courses.dart';
 import 'package:university_app/models/dep_model.dart';
+import 'package:university_app/models/form.dart';
+import 'package:university_app/models/links.dart';
 import 'package:university_app/models/major_dep.dart';
 import 'package:university_app/models/resource_type.dart';
 import 'package:university_app/models/semester.dart';
+import 'package:university_app/models/sound.dart';
+import 'package:university_app/models/summary.dart';
 import 'package:university_app/models/university.dart';
+import 'package:university_app/models/video.dart';
+import 'package:university_app/models/video_link.dart';
 import 'package:university_app/models/years_model.dart';
 
 import 'api_settings.dart';
@@ -57,10 +65,11 @@ class HomeApiController with ApiHelper{
    Future<List<YearsModel>> getYears() async {
     print('get years'); 
     var url = Uri.parse(ApiSettings.years);
+    print(url);
     var response = await http.get(url , headers:headers );
     
-    print(response.body);
-    print(headers);
+    // print(response.body);
+    // print(headers);
     if (response.statusCode == 200) {
       var yearsJsonArray = jsonDecode(response.body)['data'] as List;
       
@@ -90,32 +99,87 @@ class HomeApiController with ApiHelper{
       return semesterJsonArray
           .map((jsonObject) => SemesterModel.fromJson(jsonObject))
           .toList();
-      
-
-          
+        
     }
   
-     
-    
     return [];
    
   }
 
-   Future<List<ResourceType>> getResourceType() async {
-   
+   Future<List<CoursesModel>> geSemesterCourses(String mid , String yid, String sid) async {
+ var url = Uri.parse(ApiSettings.yearsemestercourses.replaceAll('{major_id}', mid).replaceAll('{year_id}', yid).replaceAll('{semester_id}', sid));
+
+    //var url = Uri.parse(ApiSettings.yearsemestercourses.replaceFirst('{major_id}', mid , '{year_id}', yid, '{semester_id}',sid ));
+    print(url);
+    var response = await http.get(url, headers: headers);
+    if (response.statusCode == 200) {
+      var courseJsonArray = jsonDecode(response.body)['data'] as List;
+      return courseJsonArray
+          .map((jsonObject) => CoursesModel.fromJson(jsonObject))
+          .toList();
+    }
+    return [];
+  }
+  
+
+  
+
+    Future<List<ResourceType>> getResourceType() async {
     var url = Uri.parse(ApiSettings.resourceTypes);
+    var response = await http.get(url , headers: headers);
+    print(response.body);
+    if (response.statusCode == 200) {
+      
+     var body = jsonDecode(response.body);
+     List<dynamic> jsonData = body['data'];
+      return jsonData
+          .map((jsonObject) => ResourceType.fromJson(jsonObject))
+          .toList();
+    }
+    return [];
+  }
+
+
+   Future<List<SoundModel>> getSound(String id) async {
+   
+    var url = Uri.parse(ApiSettings.sounds.replaceFirst("{id}", id));
     print(url);
     var response = await http.get(url , headers:headers );
     
    
    print(response.statusCode);
     if (response.statusCode == 200) {
+      
+      var soundJsonArray = jsonDecode(response.body)['data'] as List ;
+    
+      return soundJsonArray
+          .map((jsonObject) => SoundModel.fromJson(jsonObject)).toList();
+          
+      
+
+          
+    }
+  
      
-      var resourceJsonArray = jsonDecode(response.body)['data'] as List;
-    //  print(semesterJsonArray);
-      return resourceJsonArray
-          .map((jsonObject) => ResourceType.fromJson(jsonObject))
-          .toList();
+    
+    return [];
+   
+  }
+   Future<List<BookModel>> getBooks(String id) async {
+   
+    var url = Uri.parse(ApiSettings.allBooks.replaceFirst("{id}", id));
+    print(url);
+    var response = await http.get(url , headers:headers );
+    
+   
+   print(response.statusCode);
+    if (response.statusCode == 200) {
+      
+      var bookJsonArray = jsonDecode(response.body)['data'] as List ;
+    
+      return bookJsonArray
+          .map((jsonObject) => BookModel.fromJson(jsonObject)).toList();
+          
       
 
           
@@ -127,6 +191,131 @@ class HomeApiController with ApiHelper{
    
   }
 
+  Future<List<LinksModel>> getLinks(String id) async {
    
+    var url = Uri.parse(ApiSettings.urlResource.replaceFirst("{id}", id));
+    print(url);
+    var response = await http.get(url , headers:headers );
+    
+   
+   print(response.statusCode);
+    if (response.statusCode == 200) {
+      
+      var linkJsonArray = jsonDecode(response.body)['data'] as List ;
+    
+      return linkJsonArray
+          .map((jsonObject) => LinksModel.fromJson(jsonObject)).toList();
+          
+      
+
+          
+    }
   
+     
+    
+    return [];
+   
+  }
+   Future<List<SummaryModel>> getSummary(String id) async {
+   
+    var url = Uri.parse(ApiSettings.summarizations.replaceFirst("{id}", id));
+    print(url);
+    var response = await http.get(url , headers:headers );
+    
+   
+   print(response.statusCode);
+    if (response.statusCode == 200) {
+      
+      var summaryJsonArray = jsonDecode(response.body)['data'] as List ;
+    
+      return summaryJsonArray
+          .map((jsonObject) => SummaryModel.fromJson(jsonObject)).toList();
+          
+      
+
+          
+    }
+  
+     
+    
+    return [];
+   
+  }
+  
+   Future<List<VideoModel>> getVideo(String id) async {
+   
+    var url = Uri.parse(ApiSettings.video.replaceFirst("{id}", id));
+    print(url);
+    var response = await http.get(url , headers:headers );
+    
+   
+   print(response.statusCode);
+    if (response.statusCode == 200) {
+      
+      var videoJsonArray = jsonDecode(response.body)['data'] as List ;
+    
+      return videoJsonArray
+          .map((jsonObject) => VideoModel.fromJson(jsonObject)).toList();
+          
+      
+
+          
+    }
+  
+     
+    
+    return [];
+   
+  }
+   Future<List<FormModel>> getFormSample(String id) async {
+   
+    var url = Uri.parse(ApiSettings.samples.replaceFirst("{id}", id));
+    print(url);
+    var response = await http.get(url , headers:headers );
+    
+   
+   print(response.statusCode);
+    if (response.statusCode == 200) {
+      
+      var formJsonArray = jsonDecode(response.body)['data'] as List ;
+    
+      return formJsonArray
+          .map((jsonObject) => FormModel.fromJson(jsonObject)).toList();
+          
+      
+
+          
+    }
+  
+     
+    
+    return [];
+   
+  }
+
+  Future<List<VideoLinksModel>> getVideoUrl(String id) async {
+   
+    var url = Uri.parse(ApiSettings.videoUrl.replaceFirst("{id}", id));
+    print(url);
+    var response = await http.get(url , headers:headers );
+    
+   
+   print(response.statusCode);
+    if (response.statusCode == 200) {
+      
+      var vlinkJsonArray = jsonDecode(response.body)['data'] as List ;
+    
+      return vlinkJsonArray
+          .map((jsonObject) => VideoLinksModel.fromJson(jsonObject)).toList();
+          
+      
+
+          
+    }
+  
+     
+    
+    return [];
+   
+  }
 }
