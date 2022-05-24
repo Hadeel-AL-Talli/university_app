@@ -15,6 +15,7 @@ class VoiceWidget extends StatelessWidget {
 
     return Column(
       children: [
+         SizedBox(height: 20.h,),
         PhysicalModel(
             color: Colors.white,
             elevation: 18,

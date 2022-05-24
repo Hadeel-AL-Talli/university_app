@@ -6,9 +6,12 @@ import 'package:flutter/services.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:audio_session/audio_session.dart';
 import 'package:university_app/controllers/api_settings.dart';
+import 'package:university_app/controllers/home_api_controller.dart';
 import 'package:university_app/models/sound.dart';
 import 'package:university_app/utils/constants.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:university_app/widgets/voice.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 class AudioScreen extends StatefulWidget {
@@ -21,19 +24,23 @@ class AudioScreen extends StatefulWidget {
 
 class _AudioScreenState extends State<AudioScreen> with WidgetsBindingObserver {
   List<SoundModel> _sounds = <SoundModel>[];
+   late Future<List<SoundModel>> _future;
   final _player = AudioPlayer();
  Duration defaultDuration = Duration(milliseconds: 1);
 
+  get index => null;
+
    void initState() {
     super.initState();
+     _future = HomeApiController().getSound(widget.id.toString());
     WidgetsBinding.instance?.addObserver(this);
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.black,
     ));
-    _initAudioPlayer(widget.id.toString());
+  //  _initAudioPlayer(widget.id.toString());
 
   }
-  void _initAudioPlayer(String ind,
+  void _initAudioPlayer(String ind, String res
       ) async {
     // Inform the operating system of our app's audio attributes etc.
     // We pick a reasonable default for an app that plays speech.
@@ -46,7 +53,7 @@ class _AudioScreenState extends State<AudioScreen> with WidgetsBindingObserver {
     // Try to load audio from a source and catch any errors.
     try {
       //var url = "https://dargonsoftt.com/upload/res/audio/1652816494_file_example_MP3_5MG.mp3";
-      var url = "https://s3.amazonaws.com/scifri-episodes/scifri20181123-episode.mp3";
+      var url = res;
       print('url $url');
       defaultDuration = (await _player.setAudioSource(AudioSource.uri(Uri.parse(url))))!;
     } catch (e) {
@@ -79,51 +86,125 @@ class _AudioScreenState extends State<AudioScreen> with WidgetsBindingObserver {
   }
  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // Display play/pause button and volume/speed sliders.
-              ControlButtons(_player),
-              // Display seek bar. Using StreamBuilder, this widget rebuilds
-              // each time the position, buffered position or duration changes.
+    return 
+       Scaffold(
+         appBar: AppBar(
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back_ios)),
+      centerTitle: true,
+        title: const Text('الأصوات',style: TextStyle(fontFamily: 'Droid'),),
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: <Color>[
               
-              StreamBuilder<PositionData>(
-                stream: _positionDataStream,
-                builder: (context, snapshot) {
-                  final positionData = snapshot.data;
-                  return SeekBar(
-                    duration: positionData?.duration ?? Duration.zero,
-                    position: positionData?.position ?? Duration.zero,
-                    bufferedPosition:
-                        positionData?.bufferedPosition ?? Duration.zero,
-                    onChangeEnd: _player.seek,
-                  );
-                },
-              ),
-            ],
-          ),
-        ),
+              Color(0xff2D475F),Color(0xff3AA8F2)
+            ])          
+         ),        
+     ),
       ),
-    );
+
+         body: SafeArea(
+            child: FutureBuilder<List<SoundModel>>(
+              future:_future ,
+              builder: (context, snapshot) {
+                 if(snapshot.connectionState == ConnectionState.waiting){
+           return Center(child: CircularProgressIndicator(),);
+        }
+        else if (snapshot.hasData && snapshot.data!.isNotEmpty){
+             _sounds = snapshot.data ?? [];
+                return Column(
+                  
+                  
+                  children: [
+                    SizedBox(height: 20.h,),
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: _sounds.length,
+                        itemBuilder: (context,index){
+                          return InkWell(
+                          onTap: (){
+                            print('clicked');
+                            _initAudioPlayer(widget.id.toString() , _sounds[index].res);
+                          },
+                          child: 
+                              VoiceWidget(link: _sounds[index].res, name: _sounds[index].name),
+                              
+                              
+                             
+                          
+                          );
+                        }
+                      ),
+                     
+                     ) ,
+
+                      
+                    
+                    
+                    // Display play/pause button and volume/speed sliders.
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Color(AppUtils.blueColor),
+                        borderRadius: const BorderRadius.only(topLeft: Radius.circular(15), topRight:Radius.circular(15))
+                      ),
+                      width: double.infinity,
+                     
+                      child: Center(child: ControlButtons(_player))),
+                    // Display seek bar. Using StreamBuilder, this widget rebuilds
+                    // each time the position, buffered position or duration changes.
+                    
+                    Container(
+                      width: double.infinity,
+                       color: Color(AppUtils.blueColor),
+                      child: StreamBuilder<PositionData>(
+                        stream: _positionDataStream,
+                        builder: (context, snapshot) {
+                          final positionData = snapshot.data;
+                          return SeekBar(
+                            onChanged: _player.seek,
+                            duration: positionData?.duration ?? Duration.zero,
+                            position: positionData?.position ?? Duration.zero,
+                            bufferedPosition:
+                                positionData?.bufferedPosition ?? Duration.zero,
+                            onChangeEnd: _player.seek,
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                );
+              }
+              else {
+                return Text('No Data' , style: AppUtils.h1); 
+              }
+              }
+              
+            ),
+
+          ),
+       );
+      
+    
   }
 }
 
 
 class ControlButtons extends StatelessWidget {
   final AudioPlayer player;
-
-  const ControlButtons(this.player, {Key? key}) : super(key: key);
+ 
+  const ControlButtons(this.player,{Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context ) {
+    
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
+       // Text('name' ,style: AppUtils.h2,),
         // Opens volume slider dialog
         IconButton(
           icon: const Icon(Icons.volume_up),
@@ -154,6 +235,7 @@ class ControlButtons extends StatelessWidget {
             if (processingState == ProcessingState.loading ||
                 processingState == ProcessingState.buffering) {
               return Container(
+               
                 margin: const EdgeInsets.all(8.0),
                 width: 64.0,
                 height: 64.0,
@@ -161,20 +243,20 @@ class ControlButtons extends StatelessWidget {
               );
             } else if (playing != true) {
               return IconButton(
-                icon: const Icon(Icons.play_arrow),
-                iconSize: 64.0,
+                icon: const Icon(Icons.play_arrow , color: Colors.white,),
+                iconSize: 50.0,
                 onPressed: player.play,
               );
             } else if (processingState != ProcessingState.completed) {
               return IconButton(
-                icon: const Icon(Icons.pause),
-                iconSize: 64.0,
+                icon: const Icon(Icons.pause , color: Colors.white,),
+                iconSize: 50.0,
                 onPressed: player.pause,
               );
             } else {
               return IconButton(
-                icon: const Icon(Icons.replay),
-                iconSize: 64.0,
+                icon: const Icon(Icons.replay , color: Colors.white,),
+                iconSize: 50.0,
                 onPressed: () => player.seek(Duration.zero),
               );
             }
@@ -200,6 +282,7 @@ class ControlButtons extends StatelessWidget {
             },
           ),
         ),
+        
       ],
     );
   }
