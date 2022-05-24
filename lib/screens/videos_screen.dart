@@ -61,7 +61,7 @@ class _VideosScreenState extends State<VideosScreen> {
       
                     ),
                     itemBuilder: (BuildContext context, int index){
-                     return  VideosWidget(title:_video[index].name, imagepath: 'images/vd.png');
+                     return  VideosWidget(title:_video[index].name.substring(0,15), imagepath: 'images/vd.png' , id: widget.id,res: _video[index].res,);
                     },
                   );
 

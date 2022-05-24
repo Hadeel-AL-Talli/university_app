@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:university_app/controllers/home_api_controller.dart';
 import 'package:university_app/models/resource_type.dart';
+import 'package:university_app/screens/audio_screen.dart';
 import 'package:university_app/screens/books_screen.dart';
 import 'package:university_app/screens/forms_screen.dart';
 import 'package:university_app/screens/links_screen.dart';
@@ -73,7 +74,7 @@ class _SubjectScreenState extends State<SubjectScreen> {
                          onTap: (){
                            if(_resourceType[index].id == 16){
                         Navigator.push(context, MaterialPageRoute(builder: ((context) {
-                          return Voice(id: widget.id);
+                          return AudioScreen(id: widget.id);
                         })));
                         
                            }
