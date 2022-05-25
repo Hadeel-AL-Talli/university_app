@@ -48,7 +48,7 @@ class VideosWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                    SizedBox(width: 10.w,),
-                    Text(title ,style:TextStyle(color: const Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' ,)),
+                    Text(title.substring(0,6) ,style:TextStyle(color: const Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' ,)),
                      Image.asset('images/film.png',),
                   ],
                 )
