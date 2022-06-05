@@ -60,7 +60,7 @@ class _SignInState extends State<SignIn> with ApiHelper {
                
                  Container(
                     margin: const EdgeInsets.only(right: 50 , left: 50),
-                   child: AppTextField(hint: 'رقم الجوال أو الايميل ', controller: _email)),
+                   child: AppTextField(hint: ' الايميل ', controller: _email)),
 
                    SizedBox(height: 30.h,),
                   Container(

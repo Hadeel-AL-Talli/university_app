@@ -6,6 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:university_app/screens/books_screen.dart';
 import 'package:university_app/screens/department_screen.dart';
 import 'package:university_app/screens/forms_screen.dart';
+import 'package:university_app/screens/how_to_register.dart';
+import 'package:university_app/screens/info_screen.dart';
 import 'package:university_app/screens/links_screen.dart';
 import 'package:university_app/screens/major_screen.dart';
 import 'package:university_app/screens/sign_in.dart';
@@ -47,6 +49,8 @@ class MyApp extends StatelessWidget {
           '/SignUp':(context)=> const SignUp(),
              '/sign_in':((context) => const SignIn()),
           '/univ_screen'  :(context)=> const UniversitiesScreen(),
+          '/info':(context)=> const Info(),
+          '/how_to_register':(context) => HowToRegister()
         //  '/univ_department':(context)=> const UnivDepartment(), 
          // '/department_screen' : (context)=> const DepartmentScreen(),
          // '/major_screen' :((context) => const MajorScreen()),

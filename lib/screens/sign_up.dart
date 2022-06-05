@@ -88,7 +88,13 @@ class _SignUpState extends State<SignUp> with ApiHelper {
                     SizedBox(height: 10.h,),
                     TextButton(onPressed: (){
                        Navigator.pushNamed(context, '/sign_in');
-                    }, child: Text('لدي حساب بالفعل, تسجيل دخول ',style:AppUtils.h3 ,))
+                    }, child: Text('لدي حساب بالفعل, تسجيل دخول ',style:AppUtils.h3 ,)),
+
+
+                    TextButton(onPressed: (){
+                       Navigator.pushNamed(context, '/how_to_register');
+                    }, child: Text('لمعرفة كيفية التسجيل , اضغط هنا ',style:AppUtils.h3 ,)),
+
                 
           ],),
           

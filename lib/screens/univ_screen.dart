@@ -44,9 +44,15 @@ class _UniversitiesScreenState extends State<UniversitiesScreen> {
          ),        
      ),   
      actions: [
+        IconButton(onPressed: () {
+          Navigator.pushNamed(context, '/info');
+       }, icon: Icon(Icons.info)
+       ),
        IconButton(onPressed: () async{
           await logout(context);
-       }, icon: Icon(Icons.logout))
+       }, icon: Icon(Icons.logout)
+       ),
+       
      ],   
  ),
 
