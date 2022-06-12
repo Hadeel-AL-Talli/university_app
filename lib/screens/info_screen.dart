@@ -14,7 +14,7 @@ class Info extends StatelessWidget {
         }, icon: Icon(Icons.arrow_back_ios)),
         automaticallyImplyLeading: false,
       centerTitle: true,
-        title: const Text('عن التطبيق'  , style: TextStyle(fontFamily: 'Droid'),),
+        title: const Text(''  , style: TextStyle(fontFamily: 'Droid'),),
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -30,6 +30,7 @@ class Info extends StatelessWidget {
  ),
       body: ListView(
         children: [
+          Center(child: Text('عن التطبيق ',textAlign: TextAlign.right, style: TextStyle(color: Colors.black , fontFamily: 'Droid' , fontWeight: FontWeight.bold , fontSize: 18))),
           SizedBox(height: 15,),
          
           Padding(
@@ -41,8 +42,10 @@ class Info extends StatelessWidget {
    ''' , textAlign: TextAlign.right,style: TextStyle(color: Colors.black45, fontFamily: 'Droid', fontSize: 15),),
           ),
           Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Text('عن الشركة',textAlign: TextAlign.right, style: TextStyle(color: Colors.blue , fontFamily: 'Droid' , fontWeight: FontWeight.bold , fontSize: 18)
+            padding: const EdgeInsets.all(15.0),
+            child: Center(
+              child: Text('عن الشركة',textAlign: TextAlign.right, style: TextStyle(color: Colors.black , fontFamily: 'Droid' , fontWeight: FontWeight.bold , fontSize: 18)
+              ),
             ),
         
           ),

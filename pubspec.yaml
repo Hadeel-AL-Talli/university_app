@@ -44,6 +44,7 @@ dependencies:
   # audioplayers: ^0.20.1
   syncfusion_flutter_pdfviewer: ^20.1.56-beta
   just_audio: ^0.9.21
+  whatsapp_unilink: ^2.0.1+1
   # advance_pdf_viewer: ^2.0.1
   # pdf_text: ^0.5.0
   # sizer: ^2.0.15

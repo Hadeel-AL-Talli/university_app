@@ -9,6 +9,8 @@ import 'package:university_app/utils/constants.dart';
 import 'package:university_app/widgets/app_text_field.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:whatsapp_unilink/whatsapp_unilink.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({ Key? key }) : super(key: key);
@@ -22,6 +24,16 @@ class _SignUpState extends State<SignUp> with ApiHelper {
    late TextEditingController _email ;
     late TextEditingController _password ; 
     late TextEditingController _phone; 
+    launchWhatsApp() async {
+  final link = WhatsAppUnilink(
+    phoneNumber: '+967735090373',
+    text: "Hey! I want to complete register to the app",
+  );
+  // Convert the WhatsAppUnilink instance to a string.
+  // Use either Dart's string interpolation or the toString() method.
+  // The "launch" method is part of "url_launcher".
+  await launch('$link');
+}
   @override
   void initState() {
     // TODO: implement initState
@@ -84,7 +96,11 @@ class _SignUpState extends State<SignUp> with ApiHelper {
                     SizedBox(height: 40.h,),
                     Text('إكمال عملية التسجيل من خلال الواتسآب' ,textAlign: TextAlign.center ,style:AppUtils.h3White),
                     SizedBox(height: 15.h,),
-                    GestureDetector(child: SvgPicture.asset('images/whatsapp.svg')),
+                    GestureDetector(
+                      onTap: (){
+                   launchWhatsApp();
+                      },
+                      child: SvgPicture.asset('images/whatsapp.svg')),
                     SizedBox(height: 10.h,),
                     TextButton(onPressed: (){
                        Navigator.pushNamed(context, '/sign_in');
