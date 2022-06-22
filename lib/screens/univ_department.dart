@@ -70,7 +70,9 @@ class _UnivDepartmenetState extends State<UnivDepartment> {
                         print('clicked');
                       Navigator.push(context, MaterialPageRoute(builder: (context) => DepartmentScreen(id: _department[index].id)));
                       },
-                      child: UnivDepartmentWidget(title: _department[index].name , imagePath: _department[index].photo,));
+                      child: UnivDepartmentWidget(title: _department[index].name ,
+                     //  imagePath: _department[index].photo,
+                       ));
                   },
                 );
       }

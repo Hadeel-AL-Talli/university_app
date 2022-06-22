@@ -21,7 +21,7 @@ mixin ApiHelper {
 
   Map<String, String> get headers {
     var headers = {
-      'Accept': 'application/json',
+      'accept': 'application/json',
       
     };
     if (SharedPrefController().loggedIn) { //  TODO:: shared pref  controller 

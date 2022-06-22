@@ -42,7 +42,7 @@ class BooksWidget extends StatelessWidget {
               
               Expanded(
                 flex:2,
-                child: Text(title ,style:TextStyle(color: const Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' , fontWeight: FontWeight.bold)))
+                child: Text(title ,maxLines: 1,style:TextStyle(color: const Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' , fontWeight: FontWeight.bold)))
             ],
           ),
         ),

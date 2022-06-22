@@ -72,7 +72,7 @@ class _SignUpState extends State<SignUp> with ApiHelper {
           child: Column(children: [
            
             SizedBox(height: 100.h,),
-            SvgPicture.asset('images/logo.svg'),
+            SvgPicture.asset('images/logo.svg', height: 70.h, width: 70.w),
                  SizedBox(height: 10.h,),
                  Text('دليل الطالب', style: AppUtils.h3White),
                 

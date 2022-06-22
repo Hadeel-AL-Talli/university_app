@@ -44,7 +44,9 @@ class FormsWidget extends StatelessWidget {
 
               Expanded(
                 flex: 2,
-                child: Text(title ,style:TextStyle(color: const Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' )))
+                child: Text(
+                  
+                  title ,maxLines: 1,style:TextStyle(color: const Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' )))
             ],
           ),
         ),

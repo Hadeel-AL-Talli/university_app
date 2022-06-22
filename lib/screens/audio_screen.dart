@@ -112,9 +112,11 @@ class _AudioScreenState extends State<AudioScreen> with WidgetsBindingObserver {
               future:_future ,
               builder: (context, snapshot) {
                  if(snapshot.connectionState == ConnectionState.waiting){
+                  print('waiting');
            return Center(child: CircularProgressIndicator(),);
         }
         else if (snapshot.hasData && snapshot.data!.isNotEmpty){
+          print('has data');
              _sounds = snapshot.data ?? [];
                 return Column(
                   
@@ -179,7 +181,21 @@ class _AudioScreenState extends State<AudioScreen> with WidgetsBindingObserver {
                 );
               }
               else {
-                return Text('No Data' , style: AppUtils.h1); 
+              return  Center(
+              child: Column(
+                children: const [
+                  Icon(Icons.warning, size: 80),
+                  Text(
+                    'NO DATA',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                    ),
+                  )
+                ],
+              ),
+            );
               }
               }
               

@@ -39,11 +39,11 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-             SvgPicture.asset('images/logo.svg'),
+             SvgPicture.asset('images/logo.svg' , height: 70.h, width: 70.w,),
              SizedBox(height: 10.h,),
              Text('دليل الطالب', style: AppUtils.h1,)
-            ],
-          ),
+            ], 
+          ), 
         ),
       ),
     );

@@ -3,10 +3,12 @@ import 'package:university_app/utils/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 class UnivDepartmentWidget extends StatelessWidget {
 
-  final String imagePath ; 
+ // final String imagePath ; 
   final String title ; 
 
-  const UnivDepartmentWidget({ Key? key  , required this.title , required this.imagePath}) : super(key: key);
+  const UnivDepartmentWidget({ Key? key  , required this.title ,
+  // required this.imagePath
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,25 +45,26 @@ class UnivDepartmentWidget extends StatelessWidget {
           ),
         ),
        
-         Positioned(
-          top:-20.h,
+        //  Positioned(
+        //   top:-20.h,
           
-         left: 50.w,
-          child: Image.network(imagePath, width: 80.w , height: 80.h,)), 
+        //  left: 50.w,
+        //   child: Image.network(imagePath,
+        //    width: 80.w , height: 80.h,)), 
     
-         Positioned(
-          left: 65.w,
-          bottom: 27.h,
-          child: CircleAvatar(
-            maxRadius: 20,
-            backgroundColor: Colors.white,
-            child: Icon(
-              Icons.arrow_back_ios,
-              size: 20,
-              color: Color(AppUtils.blueColor),
-            ),
-          ),
-        ),
+        //  Positioned(
+        //   left: 65.w,
+        //   bottom: 27.h,
+        //   child: CircleAvatar(
+        //     maxRadius: 20,
+        //     backgroundColor: Colors.white,
+        //     child: Icon(
+        //       Icons.arrow_back_ios,
+        //       size: 20,
+        //       color: Color(AppUtils.blueColor),
+        //     ),
+        //   ),
+        // ),
       ],
     );
 

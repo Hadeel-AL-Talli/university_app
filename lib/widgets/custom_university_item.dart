@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:university_app/screens/univ_department.dart';
 import 'package:university_app/utils/constants.dart';
@@ -20,11 +21,12 @@ class CustomUnivItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      clipBehavior: Clip.none, children: [
+      clipBehavior: Clip.none,
+       children: [
        
         Container(
           
-          width: 310.w,
+          width: 320.w,
           height: 130.h,
           child: Padding(
             padding:  EdgeInsets.symmetric(horizontal: 10.w),
@@ -50,15 +52,15 @@ class CustomUnivItem extends StatelessWidget {
     
         ),
         Positioned(
-          right: -20.w,
-          top:20.h,
+          right: 0.w,
+          top:10.h,
           child: Container(
-            height: 90.h,
-            width: 75.w,
+            height: 110.h,
+            width: 85.w,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
-    
+             
                 boxShadow: const [
                   BoxShadow(
                   color: Colors.grey,
@@ -67,8 +69,8 @@ class CustomUnivItem extends StatelessWidget {
                 )
                 ]
               ),
-            //child: Image.network(imagePath, width: 70.w, height: 70.h,),
-                          child: Image.network(imagePath, width: 70.w, height: 70.h,),
+            
+                          child: CachedNetworkImage(imageUrl:imagePath, width: 100.w, height: 80.h,),
           ),
         ),
           Positioned(

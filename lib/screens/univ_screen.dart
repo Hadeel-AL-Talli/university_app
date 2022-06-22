@@ -95,7 +95,7 @@ class _UniversitiesScreenState extends State<UniversitiesScreen> {
                          child: CustomUnivItem(nameAR: _university[index].name,
                                              
                                              
-                                              imagePath:_university[index].photo
+                                             imagePath:_university[index].photo
                          ),
                        ),
                     ],
