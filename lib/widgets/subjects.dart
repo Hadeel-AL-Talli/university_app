@@ -24,19 +24,23 @@ class SubjectsWidget extends StatelessWidget {
                
             ]
               ),
-          width: 170.w,
-          height: 174.h,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+          // width: 170.w,
+          // height: 174.h,
+          child: Wrap(
             children: [
-              SizedBox(height: 10.h,),
-              Center(
-                child: Image.asset(imagepath),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SizedBox(height: 10.h,),
+                  Center(
+                    child: Image.asset(imagepath),
     
+                  ),
+    
+                  
+                  Text(title ,style:TextStyle(color: const Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' , fontWeight: FontWeight.bold))
+                ],
               ),
-    
-              
-              Text(title ,style:TextStyle(color: const Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' , fontWeight: FontWeight.bold))
             ],
           ),
         ),

@@ -4,7 +4,7 @@ import 'package:university_app/models/major_dep.dart';
 import 'package:university_app/models/years_model.dart';
 import 'package:university_app/screens/term.dart';
 import 'package:university_app/widgets/major.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 class MajorScreen extends StatefulWidget {
   const MajorScreen({ Key? key , required this.id }) : super(key: key);
   final int id ;
@@ -76,21 +76,23 @@ class _MajorScreenState extends State<MajorScreen> {
                   );
       }
       else {
-         return Center(
-              child: Column(
-                children: const [
-                  Icon(Icons.warning, size: 80),
-                  Text(
-                    'NO DATA',
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24,
-                    ),
-                  )
-                ],
-              ),
-            );
+         return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+           // crossAxisAlignment: CrossAxisAlignment.center,
+                    children:  [
+                      Image.asset('images/nodata.jpg', height: 250.h, width: 250.w,),
+                      Center(
+                        child: Text(
+                          'سيتم إضافتها قريباً ',
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 24,
+                          ),
+                        ),
+                      )
+                    ],
+                  );
       }
      }
    ),

@@ -56,7 +56,9 @@ class AuthApiController with ApiHelper{
     
       print(response.body);
       //TODO: SHARED PREFERENCES - SAVE LOGGED IN USER DATA!!
-      List jsonObject = jsonDecode(response.body);
+      //List jsonObject = jsonDecode(response.body);
+      
+      List jsonObject = json.decode(response.body);
       print(jsonObject);
       var user = jsonObject.first['user'];
       var token = jsonObject.first['token'];

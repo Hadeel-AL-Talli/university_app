@@ -41,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
             children: [
              SvgPicture.asset('images/logo.svg' , height: 70.h, width: 70.w,),
              SizedBox(height: 10.h,),
-             Text('دليل الطالب', style: AppUtils.h1,)
+             Text('موسوعتي الجامعية', style: AppUtils.h1,)
             ], 
           ), 
         ),

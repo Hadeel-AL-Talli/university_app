@@ -13,6 +13,7 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> with ApiHelper {
+  bool obsecuretext = true; 
  
    late TextEditingController _email ;
     late TextEditingController _password ;  
@@ -52,7 +53,7 @@ class _SignInState extends State<SignIn> with ApiHelper {
             SizedBox(height: 100.h,),
             SvgPicture.asset('images/logo.svg', height: 70.h, width: 70.w),
                  SizedBox(height: 10.h,),
-                 Text('دليل الطالب', style: AppUtils.h3White),
+                 Text(' موسوعتي الجامعية', style: AppUtils.h3White),
         
                  SizedBox(height: 80.h,),
         
@@ -65,7 +66,17 @@ class _SignInState extends State<SignIn> with ApiHelper {
                    SizedBox(height: 30.h,),
                   Container(
                      margin: const EdgeInsets.only(right: 50 , left: 50),
-                    child: AppTextField(hint: 'كلمة السر  ', controller: _password)), 
+                    child: AppTextField(
+                      hint: 'كلمة السر  ', controller: _password, obscureText: obsecuretext,
+                      suffixIcon: GestureDetector(onTap: (){
+                     setState(() {
+                       obsecuretext = !obsecuretext;
+                     });
+              },
+              child: Icon(obsecuretext ? Icons.visibility : Icons.visibility_off),
+              ),
+
+                    ),), 
         
             SizedBox(height: 100.h,),
             TextButton(onPressed: (){
@@ -90,7 +101,7 @@ class _SignInState extends State<SignIn> with ApiHelper {
     ),
             child: InkWell(
               onTap: () async{
-
+                 
                 await performLogin();   
                 // Navigator.pushNamed(context, '/univ_screen');
               },
@@ -125,6 +136,7 @@ class _SignInState extends State<SignIn> with ApiHelper {
 
    Future<void> performLogin() async {
     if (checkData()) {
+      
       await login();
     }
   }
@@ -136,7 +148,7 @@ class _SignInState extends State<SignIn> with ApiHelper {
     }
     showSnackBar(
       context,
-      message: 'Enter required data!',
+      message: 'من فضلك, أدخل البيانات المطلوبة',
       error: true,
     );
     return false;

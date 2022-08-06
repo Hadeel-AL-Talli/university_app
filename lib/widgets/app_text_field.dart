@@ -6,13 +6,14 @@ class AppTextField extends StatelessWidget {
     Key? key,
     required this.hint,
     required this.controller,
-   
+   this.suffixIcon,
     this.keyboardType = TextInputType.text,
     this.obscureText = false,
   }) : super(key: key);
 
   final String hint;
   final TextInputType keyboardType;
+  final Widget? suffixIcon;
   final TextEditingController controller;
  
   final bool obscureText;
@@ -29,7 +30,7 @@ class AppTextField extends StatelessWidget {
         decoration: InputDecoration(
             hintText: hint,
             hintStyle: AppUtils.h3,
-            
+            suffixIcon: suffixIcon,
             enabledBorder: border(),
            // focusedBorder: border(borderColor: Colors.black)
         ),

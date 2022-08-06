@@ -8,7 +8,7 @@ import 'package:university_app/models/summary.dart';
 import 'package:university_app/screens/SummaryPDF.dart';
 import 'package:university_app/widgets/summary.dart';
 
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SummaryScreen extends StatefulWidget {
   const SummaryScreen({ Key? key, required this.id }) : super(key: key);
@@ -85,21 +85,23 @@ class _SummaryScreenState extends State<SummaryScreen> {
                 );
       }
       else {
-         return Center(
-              child: Column(
-                children: const [
-                  Icon(Icons.warning, size: 80),
-                  Text(
-                    'NO DATA',
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24,
-                    ),
-                  )
-                ],
-              ),
-            );
+         return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+           // crossAxisAlignment: CrossAxisAlignment.center,
+                    children:  [
+                      Image.asset('images/nodata.jpg', height: 250.h, width: 250.w,),
+                      Center(
+                        child: Text(
+                          'سيتم إضافتها قريباً ',
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 24,
+                          ),
+                        ),
+                      )
+                    ],
+                  );
       }
         }
       ),

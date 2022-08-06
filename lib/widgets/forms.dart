@@ -8,7 +8,7 @@ class FormsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+   return Stack(
       children: [
         Container(
     
@@ -25,28 +25,23 @@ class FormsWidget extends StatelessWidget {
                
             ]
               ),
-          width: 170.w,
-          height: 170.h,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+          // width: 170.w,
+          // height: 174.h,
+          child: Wrap(
             children: [
-              SizedBox(height: 10.h,),
-              Expanded(
-                flex: 3,
-                child: Center(
-                  child: Image.asset(imagepath),
-                  
-                ),
-              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SizedBox(height: 10.h,),
+                  Center(
+                    child: Image.asset(imagepath),
     
-               SizedBox(height: 5.h,),
-              
-
-              Expanded(
-                flex: 2,
-                child: Text(
+                  ),
+    
                   
-                  title ,maxLines: 1,style:TextStyle(color: const Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' )))
+                  Text(title ,style:TextStyle(color: const Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' , fontWeight: FontWeight.bold))
+                ],
+              ),
             ],
           ),
         ),

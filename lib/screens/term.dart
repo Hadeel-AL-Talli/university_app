@@ -82,21 +82,23 @@ class _TermScreenState extends State<TermScreen> {
          }
 
          else{
-            return Center(
-              child: Column(
-                children: const [
-                  Icon(Icons.warning, size: 80),
-                  Text(
-                    'NO DATA',
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24,
-                    ),
-                  )
-                ],
-              ),
-            );
+            return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+           // crossAxisAlignment: CrossAxisAlignment.center,
+                    children:  [
+                      Image.asset('images/nodata.jpg', height: 250.h, width: 250.w,),
+                      Center(
+                        child: Text(
+                          'سيتم إضافتها قريباً ',
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 24,
+                          ),
+                        ),
+                      )
+                    ],
+                  );
          }
    }
  ),

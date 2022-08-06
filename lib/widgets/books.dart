@@ -8,7 +8,7 @@ class BooksWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+  return  Stack(
       children: [
         Container(
     
@@ -20,29 +20,28 @@ class BooksWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
             boxShadow: const [
              BoxShadow(
-                color: Colors.white,offset: Offset(2.0,2.0)
+                color: Colors.white,offset: Offset(1.0,1.0)
               ),
                
             ]
               ),
-          width: 170.w,
-          height: 170.h,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+          // width: 170.w,
+          // height: 174.h,
+          child: Wrap(
             children: [
-              SizedBox(height: 10.h,),
-              Expanded(
-                flex: 3,
-                child: Center(
-                  child: Image.asset(imagepath),
-                  
-                ),
-              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SizedBox(height: 10.h,),
+                  Center(
+                    child: Image.asset(imagepath),
     
-              
-              Expanded(
-                flex:2,
-                child: Text(title ,maxLines: 1,style:TextStyle(color: const Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' , fontWeight: FontWeight.bold)))
+                  ),
+    
+                  
+                  Text(title ,style:TextStyle(color: const Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' , fontWeight: FontWeight.bold))
+                ],
+              ),
             ],
           ),
         ),
@@ -50,5 +49,47 @@ class BooksWidget extends StatelessWidget {
          
       ],
     );
+    // return Stack(
+    //   children: [
+    //     Container(
+    
+    //       decoration: BoxDecoration(
+    //         border: Border.all(
+    //           width: 1,
+    //           color: Colors.white,
+    //         ),
+    //         borderRadius: BorderRadius.circular(15),
+    //         boxShadow: const [
+    //          BoxShadow(
+    //             color: Colors.white,offset: Offset(2.0,2.0)
+    //           ),
+               
+    //         ]
+    //           ),
+    //       width: 170.w,
+    //       height: 170.h,
+    //       child: Column(
+    //         mainAxisAlignment: MainAxisAlignment.spaceAround,
+    //         children: [
+    //           SizedBox(height: 10.h,),
+    //           Expanded(
+    //             flex: 3,
+    //             child: Center(
+    //               child: Image.asset(imagepath),
+                  
+    //             ),
+    //           ),
+    
+              
+    //           Expanded(
+    //             flex:2,
+    //             child: Text(title ,maxLines: 1,style:TextStyle(color: const Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' , fontWeight: FontWeight.bold)))
+    //         ],
+    //       ),
+    //     ),
+    
+         
+    //   ],
+    // );
   }
 }

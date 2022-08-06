@@ -20,6 +20,7 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> with ApiHelper {
+  bool obsecuretext = true;
   late TextEditingController _name ; 
    late TextEditingController _email ;
     late TextEditingController _password ; 
@@ -74,7 +75,7 @@ class _SignUpState extends State<SignUp> with ApiHelper {
             SizedBox(height: 100.h,),
             SvgPicture.asset('images/logo.svg', height: 70.h, width: 70.w),
                  SizedBox(height: 10.h,),
-                 Text('دليل الطالب', style: AppUtils.h3White),
+                 Text(' موسوعتي الجامعية', style: AppUtils.h3White),
                 
                 
                 
@@ -90,7 +91,15 @@ class _SignUpState extends State<SignUp> with ApiHelper {
                    child: AppTextField(hint: 'الإيميل ', controller: _email)),
                   Container(
                      margin: const EdgeInsets.only(right: 50 , left: 50),
-                    child: AppTextField(hint: 'كلمة السر  ', controller: _password)), 
+                    child: AppTextField(hint: 'كلمة السر  ', controller: _password,obscureText: obsecuretext,
+                    suffixIcon: GestureDetector(onTap: (){
+                     setState(() {
+                       obsecuretext = !obsecuretext;
+                     });
+              },
+              child: Icon(obsecuretext ? Icons.visibility : Icons.visibility_off),
+              ),
+                    )), 
                 
                 
                     SizedBox(height: 40.h,),
@@ -107,9 +116,9 @@ class _SignUpState extends State<SignUp> with ApiHelper {
                     }, child: Text('لدي حساب بالفعل, تسجيل دخول ',style:AppUtils.h3 ,)),
 
 
-                    TextButton(onPressed: (){
-                       Navigator.pushNamed(context, '/how_to_register');
-                    }, child: Text('لمعرفة كيفية التسجيل , اضغط هنا ',style:AppUtils.h3 ,)),
+                    // TextButton(onPressed: (){
+                    //    Navigator.pushNamed(context, '/how_to_register');
+                    // }, child: Text('لمعرفة كيفية التسجيل , اضغط هنا ',style:AppUtils.h3 ,)),
 
                 
           ],),
@@ -158,7 +167,8 @@ class _SignUpState extends State<SignUp> with ApiHelper {
     }
     showSnackBar(
       context,
-      message: 'Enter required data!',
+      message: 
+      'من فضلك, أدخل البيانات المطلوبة',
       error: true,
     );
     return false;

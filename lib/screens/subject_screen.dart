@@ -10,7 +10,7 @@ import 'package:university_app/screens/video_link.dart';
 import 'package:university_app/screens/videos_screen.dart';
 import 'package:university_app/screens/voice_screen.dart';
 import 'package:university_app/widgets/subject.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 class SubjectScreen extends StatefulWidget {
   const SubjectScreen({ Key? key  , required this.id , required this.name}) : super(key: key);
   final int id;
@@ -118,21 +118,23 @@ class _SubjectScreenState extends State<SubjectScreen> {
         }
 
         else{
-           return Center(
-              child: Column(
-                children: const [
-                  Icon(Icons.warning, size: 80),
-                  Text(
-                    'NO DATA',
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24,
-                    ),
-                  )
-                ],
-              ),
-            );
+           return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+           // crossAxisAlignment: CrossAxisAlignment.center,
+                    children:  [
+                      Image.asset('images/nodata.jpg', height: 250.h, width: 250.w,),
+                      Center(
+                        child: Text(
+                          'سيتم إضافتها قريباً ',
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 24,
+                          ),
+                        ),
+                      )
+                    ],
+                  );
         }
         }
       ),
