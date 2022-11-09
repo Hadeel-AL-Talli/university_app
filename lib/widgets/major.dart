@@ -36,7 +36,7 @@ class MajorWidget extends StatelessWidget {
     
          Positioned(
           left: 65.w,
-          bottom: 28.h,
+          bottom: 40.h,
           child: CircleAvatar(
             maxRadius: 20,
             backgroundColor: Color(AppUtils.blueColor),

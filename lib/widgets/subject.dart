@@ -27,7 +27,7 @@ class SubjectWidget extends StatelessWidget {
               )
             ]
               ),
-          width: 170.w,
+          width: 175.w,
           height: 165.h,
           child: Center(
             child: Image.asset(imagepath!)
@@ -37,9 +37,9 @@ class SubjectWidget extends StatelessWidget {
          Positioned(
            right: 20.w,
           left: 5.w,
-          bottom: 20.h,
+          bottom: 40.h,
           child: Container(
-            width: 150.w,
+            width: 140.w,
             height: 35.h,
              decoration: BoxDecoration(
                borderRadius: BorderRadius.circular(10),

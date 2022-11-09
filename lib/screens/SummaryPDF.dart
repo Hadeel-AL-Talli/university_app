@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
-import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
+// import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 
 class SummaryPDF extends StatefulWidget {
@@ -121,6 +121,7 @@ class _SummaryPDFState extends State<SummaryPDF> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 FloatingActionButton(
+                  backgroundColor: Colors.blue[900],
                   heroTag: '-',
                   child: const Text('-',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23),),
                   onPressed: () async {
@@ -133,6 +134,7 @@ class _SummaryPDFState extends State<SummaryPDF> {
                   },
                 ),
                 FloatingActionButton(
+                  backgroundColor: Colors.blue[900],
                   heroTag: '+',
                   
                   child: const Text('+', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23),),

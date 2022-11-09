@@ -88,10 +88,10 @@ class _SignInState extends State<SignIn> with ApiHelper {
         ),
          floatingActionButtonLocation: FloatingActionButtonLocation.startDocked,
         floatingActionButton: Padding(
-         padding:  EdgeInsets.only(right:30.0.w,),
+         padding:  EdgeInsets.only(right:30.0.w, bottom: 10.h),
           child: Container(
-            height:83.h,
-    width: 83.h,
+            height:90.h,
+    width: 90.h,
     decoration: BoxDecoration(
       gradient:const LinearGradient(colors: [Color(0xff3AA8F2),Color(0xff2D475F)]),
     

@@ -56,7 +56,7 @@ class Department extends StatelessWidget {
             ),
             
             child: CircleAvatar(
-              maxRadius: 25,
+              maxRadius: 20,
               backgroundColor: Colors.white,
               child: Icon(
                 Icons.arrow_back_ios,

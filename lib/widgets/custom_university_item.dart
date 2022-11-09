@@ -61,16 +61,16 @@ class CustomUnivItem extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
              
-                boxShadow: const [
-                  BoxShadow(
-                  color: Colors.grey,
-                 offset: Offset(0.2,1.3)
+                // boxShadow: const [
+                //   BoxShadow(
+                //   color: Colors.grey,
+                //  offset: Offset(0.2,1.3)
                   
-                )
-                ]
+                // )
+                // ]
               ),
             
-                          child: CachedNetworkImage(imageUrl:imagePath, width: 100.w, height: 80.h,),
+                          child: CachedNetworkImage(imageUrl:imagePath, width: 80.w, height: 70.h,),
           ),
         ),
           Positioned(

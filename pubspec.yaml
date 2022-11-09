@@ -51,6 +51,7 @@ dependencies:
   path_provider: ^2.0.11
   cached_network_image: ^3.2.1
   flutter_cached_pdfview: ^0.4.1
+  api_cache_manager: ^1.0.2
   
 
 

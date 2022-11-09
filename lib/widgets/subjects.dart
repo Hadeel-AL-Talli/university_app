@@ -10,7 +10,7 @@ class SubjectsWidget extends StatelessWidget {
     return Stack(
       children: [
         Container(
-    
+         margin: EdgeInsets.all(10),
           decoration: BoxDecoration(
             border: Border.all(
               width: 1,
@@ -21,7 +21,7 @@ class SubjectsWidget extends StatelessWidget {
              BoxShadow(
                 color: Colors.white,offset: Offset(1.0,1.0)
               ),
-               
+             
             ]
               ),
           // width: 170.w,
