@@ -74,7 +74,7 @@ class _SummaryPDFState extends State<SummaryPDF> {
           Navigator.pop(context);
         }, icon:  const Icon(Icons.arrow_back_ios)),
       centerTitle: true,
-        title:  Text(widget.name,style: TextStyle(fontFamily: 'Droid'),),
+        title:  Text(widget.name,style: TextStyle(fontFamily: 'Droid', fontSize: 18),),
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(

@@ -38,7 +38,7 @@ class UnivDepartmentWidget extends StatelessWidget {
           child: Center(
             child: Text(
               title,
-              
+              textAlign: TextAlign.center,
               
               style: AppUtils.h1,
             ),

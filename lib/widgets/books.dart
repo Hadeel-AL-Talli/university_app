@@ -25,23 +25,19 @@ class BooksWidget extends StatelessWidget {
                
             ]
               ),
-          // width: 170.w,
-          // height: 174.h,
-          child: Wrap(
+          width: 170.w,
+          height: 189.h,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SizedBox(height: 10.h,),
-                  Center(
-                    child: Image.asset(imagepath),
+              SizedBox(height: 10.h,),
+              Center(
+                child: Image.asset(imagepath),
     
-                  ),
-    
-                  
-                  Text(title ,style:TextStyle(color: const Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' , fontWeight: FontWeight.bold))
-                ],
               ),
+    
+              
+              Text(title.length>15? title.substring(0,16):title ,style:TextStyle(color: const Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' , fontWeight: FontWeight.bold))
             ],
           ),
         ),

@@ -33,7 +33,7 @@ class VideosWidget extends StatelessWidget {
               ]
                 ),
             width: 170.w,
-            height: 174.h,
+            height: 189.h,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -47,8 +47,8 @@ class VideosWidget extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                   SizedBox(width: 10.w,),
-                    Text(title.substring(0,6) ,style:TextStyle(color: const Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' ,)),
+                  // SizedBox(width: 10.w,),
+                    Text(title.length>11? title.substring(0,12):title ,style:TextStyle(color: const Color(0xff377198) , fontSize: 16.sp , fontFamily: 'Droid' ,)),
                      Image.asset('images/film.png',),
                   ],
                 )
